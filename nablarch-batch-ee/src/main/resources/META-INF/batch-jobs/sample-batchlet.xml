@@ -1,0 +1,11 @@
+<job id="sample-batchlet" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+  <listeners>
+    <listener ref="nablarchJobListenerExecutor" />
+  </listeners>
+  <step id="step1">
+    <listeners>
+      <listener ref="nablarchStepListenerExecutor" />
+    </listeners>
+    <batchlet ref="sampleBatchlet" />
+  </step>
+</job>

@@ -1,0 +1,7 @@
+/nablarch-batch/target
+/nablarch-web/target
+/nablarch-web/gsp-target
+/nablarch-batch/gsp-target
+**/*.log
+tmp
+work
