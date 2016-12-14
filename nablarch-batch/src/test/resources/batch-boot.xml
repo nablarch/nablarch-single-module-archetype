@@ -21,8 +21,6 @@
         <component-ref name="codeLoader"/>
         <!-- コードのキャッシュ -->
         <component-ref name="codeCache"/>
-        <!-- 処理停止ハンドラ -->
-        <component-ref name="processStopHandler"/>
       </list>
     </property>
   </component>
