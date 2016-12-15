@@ -36,8 +36,6 @@
 
   <!-- ファイルパス設置 -->
   <import file="nablarch/batch/filepath-for-batch.xml" />
-  <!-- 処理停止機能 -->
-  <import file="nablarch/common/standalone/process-stop.xml" />
   <!-- マルチスレッド実行制御機能 -->
   <import file="nablarch/common/standalone/multi-thread.xml" />
   <!-- ループ・トランザクション制御機能 -->
@@ -74,9 +72,6 @@
     <!-- ループ・トランザクション制御ハンドラ -->
     <component-ref name="loopHandler" />
 
-    <!--処理停止ハンドラ-->
-    <component-ref name="processStopHandler" />
-
     <!-- データリードハンドラ -->
     <component-ref name="dataReadHandler" />
   </list>
@@ -92,8 +87,6 @@
         <component-ref name="codeLoader" />
         <!-- common/code.xml:コードのキャッシュ -->
         <component-ref name="codeCache" />
-        <!-- batch/handler/processStop.xml:処理停止ハンドラ -->
-        <component-ref name="processStopHandler" />
       </list>
     </property>
   </component>
