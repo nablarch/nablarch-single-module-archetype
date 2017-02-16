@@ -4,7 +4,38 @@
       <pattern>%d{HH:mm:ss.SSS} %-5level %logger{10} %msg%n</pattern>
     </encoder>
   </appender>
-  <root level="INFO">
+
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>log/all.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{10} %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_PROGRESS" class="ch.qos.logback.core.FileAppender">
+    <file>log/progress.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{10} %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_OPERATION" class="ch.qos.logback.core.FileAppender">
+    <file>log/operation.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{10} %msg%n%nopex</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="progress" additivity="false">
+    <appender-ref ref="FILE_PROGRESS" />
+  </logger>
+
+  <logger name="operator" level="info">
+    <appender-ref ref="FILE_OPERATION" />
+  </logger>
+
+  <root level="info">
     <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
   </root>
 </configuration>

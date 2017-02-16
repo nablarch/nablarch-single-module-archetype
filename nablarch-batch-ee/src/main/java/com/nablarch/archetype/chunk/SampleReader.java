@@ -3,9 +3,11 @@ package com.nablarch.archetype.chunk;
 import com.nablarch.archetype.entity.SampleUser;
 import nablarch.common.dao.DeferredEntityList;
 import nablarch.common.dao.UniversalDao;
+import nablarch.fw.batch.ee.progress.ProgressManager;
 
 import javax.batch.api.chunk.AbstractItemReader;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -29,12 +31,28 @@ public class SampleReader extends AbstractItemReader {
     private Iterator<SampleUser> iterator;
 
     /**
+     * 進捗管理Bean。
+     */
+    private final ProgressManager progressManager;
+
+    /**
+     * {@link ProgressManager}をインジェクトするコンストラクタ。
+     * @param progressManager 進捗管理Bean
+     */
+    @Inject
+    public SampleReader(ProgressManager progressManager) {
+        this.progressManager = progressManager;
+    }
+
+    /**
      * データベースからサンプルユーザデータのリストを取得する。
      * @param checkpoint {@inheritDoc}
      * @throws Exception {@inheritDoc}
      */
     @Override
     public void open(Serializable checkpoint) throws Exception {
+        progressManager.setInputCount(UniversalDao.countBySqlFile(SampleUser.class, "SELECT_SAMPLE_USER"));
+
         list = (DeferredEntityList<SampleUser>) UniversalDao.defer()
                 .findAll(SampleUser.class);
 
