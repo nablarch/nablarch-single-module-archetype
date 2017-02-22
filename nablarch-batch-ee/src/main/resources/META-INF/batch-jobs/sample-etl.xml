@@ -17,6 +17,7 @@
         <listeners>
             <listener ref="nablarchStepListenerExecutor"/>
             <listener ref="nablarchItemWriteListenerExecutor"/>
+            <listener ref="progressLogListener" />
         </listeners>
         <chunk item-count="1000">
             <!-- ファイル読み込みを行うItemReaderを指定 -->
@@ -37,6 +38,7 @@
         <listeners>
             <listener ref="nablarchStepListenerExecutor" />
             <listener ref="nablarchItemWriteListenerExecutor" />
+            <listener ref="progressLogListener" />
         </listeners>
         <chunk item-count="1000">
             <!-- データベースからSELECTを行うItemReaderを指定 -->
