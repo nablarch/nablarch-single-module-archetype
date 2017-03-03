@@ -66,22 +66,11 @@
     <version.plugins.javadoc>2.10.1</version.plugins.javadoc>
     <version.plugins.resources>2.7</version.plugins.resources>
     <version.plugins.source>2.4</version.plugins.source>
-    <version.plugins.checkstyle>2.13</version.plugins.checkstyle>
     <version.plugins.jacoco>0.7.2.201409121644</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
-
-    <!-- 使用不許可APIチェックツールを含めたFindBugsの設定 -->
-    <findbugs.report.dir>${project.build.directory}/findbugs</findbugs.report.dir>
-    <findbugs.report.file.production>findbugs-production.xml</findbugs.report.file.production>
-    <findbugs.report.file.test>findbugs-test.xml</findbugs.report.file.test>
-    <findbugs.config.dir>${nablarch.tools.dir}/static-analysis/findbugs</findbugs.config.dir>
-    <findbugs.config.filter.production>${findbugs.config.dir}/findbugs-exclude-for-production.xml</findbugs.config.filter.production>
-    <findbugs.config.filter.test>${findbugs.config.dir}/findbugs-include-for-test.xml</findbugs.config.filter.test>
-    <findbugs.config.published.production>${findbugs.config.dir}/published-config/production</findbugs.config.published.production>
-    <findbugs.config.published.test>${findbugs.config.dir}/published-config/test</findbugs.config.published.test>
 
     <!-- JSP静的解析ツールの設定項目 -->
     <jspanalysis.checkjspdir>${project.basedir}/src/main/webapp</jspanalysis.checkjspdir>
@@ -199,7 +188,7 @@
                   </pluginExecutionFilter>
                   <action>
                     <!--
-                      使用不許可APIチェックツールとJSP静的解析ツールの実行は、Eclipseのビルド時には除外。
+                      JSP静的解析ツールの実行は、Eclipseのビルド時には除外。
                     -->
                     <ignore />
                   </action>
@@ -229,26 +218,6 @@
           <artifactId>maven-antrun-plugin</artifactId>
           <version>${version.plugins.antrun}</version>
           <executions>
-            <execution>
-              <!-- verifyフェーズでFindBugsチェックを実行する。 -->
-              <!--
-                 使用不許可APIチェックツールでのチェックを実施する。
-                 findbugs-maven-pluginでは、auxClasspathにtestスコープの依存ライブラリを追加することができないため、
-                 Antを利用してチェックタスクを実行する設定にしている。
-              -->
-              <id>verify-code-with-findbugs</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>run</goal>
-              </goals>
-              <configuration>
-                <target>
-                  <ant antfile="${nablarch.tools.dir}/nablarch-findbugs.xml" dir="${nablarch.tools.dir}" inheritRefs="true">
-                    <target name="findbugs" />
-                  </ant>
-                </target>
-              </configuration>
-            </execution>
             <execution>
               <!-- verifyフェーズでJSP静的解析ツールを実行する。 -->
               <id>verify-jsp</id>
@@ -341,24 +310,6 @@
           <version>${version.plugins.resources}</version>
         </plugin>
 
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>${version.plugins.checkstyle}</version>
-          <configuration>
-            <encoding>UTF-8</encoding>
-            <failOnViolation>false</failOnViolation>
-            <configLocation>${nablarch.tools.dir}/static-analysis/checkstyle/nablarch-checkstyle.xml</configLocation>
-          </configuration>
-          <executions>
-            <execution>
-              <id>validate-code-with-checkstyle</id>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>

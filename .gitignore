@@ -1,7 +1,13 @@
-/nablarch-batch/target
 /nablarch-web/target
 /nablarch-web/gsp-target
+/nablarch-batch/target
 /nablarch-batch/gsp-target
+/nablarch-batch-ee/target
+/nablarch-batch-ee/gsp-target
+/nablarch-jaxrs/target
+/nablarch-jaxrs/gsp-target
+
 **/*.log
 tmp
 work
+/.idea
