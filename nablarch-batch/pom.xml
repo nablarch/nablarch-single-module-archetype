@@ -19,9 +19,6 @@
     <!-- 環境ごとのリソースディレクトリ(プロファイルにより切り替わる) -->
     <env.resources>${project.basedir}/src/env/${env.dir}/resources</env.resources>
 
-    <!-- toolsディレクトリへのパス -->
-    <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
-
     <!-- gsp-dba-maven-pluginが使用するデータベース設定 -->
     <nablarch.db.jdbcDriver>org.h2.Driver</nablarch.db.jdbcDriver>
     <nablarch.db.url>jdbc:h2:./h2/db/SAMPLE</nablarch.db.url>
@@ -264,14 +261,6 @@
       <version>1.4.3</version>
     </dependency>
 
-    <!-- verifyフェーズでAnt経由でfindbugsを実行する際に使用する -->
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>findbugs</artifactId>
-      <version>3.0.1</version>
-      <scope>test</scope>
-    </dependency>
-
     <dependency>
       <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-core-validation-ee</artifactId>
@@ -322,24 +311,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-      </plugin>
-      <!-- ant経由で各種ツールを起動する。実行対象のツールは、
-      Findbugs、JSP静的解析ツール、使用許可API一覧作成ツールである -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <!-- JSP静的解析ツールは必要ないため、実行しないように設定を上書きする。 -->
-            <id>verify-jsp</id>
-            <phase>none</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Check Style実行 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
       <!-- カバレッジ取得 -->
       <plugin>

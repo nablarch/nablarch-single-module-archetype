@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u8</version>
+    <version>5u9</version>
   </parent>
 
   <artifactId>nablarch-web</artifactId>
-  <version>5u8</version>
+  <version>5u9</version>
   <packaging>war</packaging>
 
   <properties>
@@ -199,7 +199,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u8</version>
+        <version>5u9</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -304,15 +304,6 @@
       <artifactId>nablarch-fw-messaging-http</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <!-- verifyフェーズでAnt経由でfindbugsを実行する際に使用する -->
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>findbugs</artifactId>
-      <version>3.0.1</version>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -388,16 +379,10 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
       </plugin>
-      <!-- ant経由で各種ツールを起動する。実行対象のツールは、
-      Findbugs、JSP静的解析ツール、使用許可API一覧作成ツールである -->
+      <!-- ant経由でJSP静的解析ツールを起動する -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-      </plugin>
-      <!-- Check Style実行 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
       <!-- カバレッジ取得 -->
       <plugin>

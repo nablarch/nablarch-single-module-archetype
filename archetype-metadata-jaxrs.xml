@@ -54,23 +54,10 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
-      <directory>tools/static-analysis</directory>
-      <includes>
-        <include>**/*.txt</include>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
       <directory>src/env</directory>
       <includes>
         <include>**/*.xml</include>
         <include>**/*.properties</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>tools</directory>
-      <includes>
-        <include>**/*.xml</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
@@ -84,13 +71,6 @@
       <directory>db/data</directory>
       <includes>
         <include>**/*.sql</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory>tools/static-analysis</directory>
-      <includes>
-        <include>**/*.xsl</include>
-        <include>**/*.config</include>
       </includes>
     </fileSet>
     <fileSet encoding="MS932">
