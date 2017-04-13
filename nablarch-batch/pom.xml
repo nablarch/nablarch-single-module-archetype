@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u9</version>
+    <version>5u10</version>
   </parent>
 
   <artifactId>nablarch-batch</artifactId>
-  <version>5u9</version>
+  <version>5u10</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -299,6 +299,14 @@
               <Target-Environment>${env.name}</Target-Environment>
             </manifestEntries>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <includeScope>runtime</includeScope>
         </configuration>
       </plugin>
       <!-- ================ここから任意で使用するツールの設定================ -->
