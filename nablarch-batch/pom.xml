@@ -318,7 +318,7 @@
               <descriptors>
                 <descriptor>distribution.xml</descriptor>
               </descriptors>
-              <finalName>application-${project.version}</finalName>
+              <finalName>${project.artifactId}-${project.version}</finalName>
               <appendAssemblyId>false</appendAssemblyId>
             </configuration>
           </execution>
