@@ -51,7 +51,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>4.1.0</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>4.2.0</version.plugins.gsp.dba>
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.18</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
