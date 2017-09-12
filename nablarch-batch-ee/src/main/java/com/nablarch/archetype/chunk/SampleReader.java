@@ -1,16 +1,18 @@
 package com.nablarch.archetype.chunk;
 
-import com.nablarch.archetype.entity.SampleUser;
-import nablarch.common.dao.DeferredEntityList;
-import nablarch.common.dao.UniversalDao;
-import nablarch.fw.batch.ee.progress.ProgressManager;
+import java.io.Serializable;
+import java.util.Iterator;
 
-import javax.batch.api.chunk.AbstractItemReader;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.Serializable;
-import java.util.Iterator;
+
+import siosio.entity.SampleUser;
+
+import nablarch.common.dao.DeferredEntityList;
+import nablarch.common.dao.UniversalDao;
+import nablarch.fw.batch.ee.chunk.BaseDatabaseItemReader;
+import nablarch.fw.batch.ee.progress.ProgressManager;
 
 /**
  * 疎通確認用ItemReader実装クラス。
@@ -18,7 +20,7 @@ import java.util.Iterator;
  */
 @Dependent
 @Named
-public class SampleReader extends AbstractItemReader {
+public class SampleReader extends BaseDatabaseItemReader {
 
     /**
      * データベースから取得したデータのリスト。
@@ -44,17 +46,12 @@ public class SampleReader extends AbstractItemReader {
         this.progressManager = progressManager;
     }
 
-    /**
-     * データベースからサンプルユーザデータのリストを取得する。
-     * @param checkpoint {@inheritDoc}
-     * @throws Exception {@inheritDoc}
-     */
     @Override
-    public void open(Serializable checkpoint) throws Exception {
+    protected void doOpen(final Serializable checkpoint) throws Exception {
         progressManager.setInputCount(UniversalDao.countBySqlFile(SampleUser.class, "SELECT_SAMPLE_USER"));
 
         list = (DeferredEntityList<SampleUser>) UniversalDao.defer()
-                .findAll(SampleUser.class);
+                                                            .findAll(SampleUser.class);
 
         iterator = list.iterator();
     }
@@ -77,9 +74,10 @@ public class SampleReader extends AbstractItemReader {
      * @throws Exception {@inheritDoc}
      */
     @Override
-    public void close() throws Exception {
+    public void doClose() throws Exception {
         if (list != null) {
             list.close();
         }
     }
+
 }
