@@ -21,6 +21,8 @@ nablarch-single-module-archetype
 
 # ビルド方法
 
+※GPGを使用しない環境で下記を実行する場合は、mvnコマンドに ``-Dgpg.skip=true`` を付加して実行すること。
+
 ## nablarch-archetype-parent
 
 ```
@@ -99,7 +101,7 @@ mvn install
 ## nablarch-web
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-web-archetype -DarchetypeVersion=xxx
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-web-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -107,7 +109,7 @@ mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArti
 ## nablarch-jaxrs
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-jaxrs-archetype -DarchetypeVersion=xxx
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-jaxrs-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -115,7 +117,7 @@ mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArti
 ## nablarch-batch
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-archetype -DarchetypeVersion=xxx
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -123,6 +125,6 @@ mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArti
 ## nablarch-batch-ee
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion=xxx
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)

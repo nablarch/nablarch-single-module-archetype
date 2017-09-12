@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u9</version>
+    <version>5u10</version>
   </parent>
 
   <artifactId>nablarch-batch</artifactId>
-  <version>5u9</version>
+  <version>5u10</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -174,7 +174,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u9</version>
+        <version>5u10</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -293,13 +293,36 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
-          <classifier>${env.classifier}</classifier>
           <archive>
             <manifestEntries>
               <Target-Environment>${env.name}</Target-Environment>
             </manifestEntries>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>nablarch.fw.launcher.Main</mainClass>
+            </manifest>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>distribution.xml</descriptor>
+              </descriptors>
+              <finalName>${project.artifactId}-${project.version}</finalName>
+              <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <!-- ================ここから任意で使用するツールの設定================ -->
       <!-- エンティティクラス生成等を行うための設定 -->

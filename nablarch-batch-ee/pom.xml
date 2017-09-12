@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u9</version>
+    <version>5u10</version>
   </parent>
 
   <artifactId>nablarch-batch-ee</artifactId>
-  <version>5u9</version>
+  <version>5u10</version>
 
 
   <!-- DB接続設定とビルド設定 -->
@@ -176,7 +176,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u9</version>
+        <version>5u10</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -232,12 +232,6 @@
     <dependency>
       <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-etl</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.10</version>
     </dependency>
 
     <dependency>
@@ -369,13 +363,36 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
-          <classifier>${env.classifier}</classifier>
           <archive>
             <manifestEntries>
               <Target-Environment>${env.name}</Target-Environment>
             </manifestEntries>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>nablarch.fw.batch.ee.Main</mainClass>
+            </manifest>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>distribution.xml</descriptor>
+              </descriptors>
+              <finalName>${project.artifactId}-${project.version}</finalName>
+              <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <!-- ================ここから任意で使用するツールの設定================ -->
       <!-- gsp-dba-maven-pluginで自動生成したソースをビルド時に使用するための設定 -->
