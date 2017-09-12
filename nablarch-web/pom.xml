@@ -333,14 +333,14 @@
       <plugin>
         <groupId>net.unit8.waitt</groupId>
         <artifactId>waitt-maven-plugin</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.1</version>
         <configuration>
           <port>9080</port>
           <servers>
             <server>
               <groupId>net.unit8.waitt.server</groupId>
               <artifactId>waitt-tomcat8</artifactId>
-              <version>0.1.0</version>
+              <version>1.2.1</version>
             </server>
           </servers>
         </configuration>
