@@ -1,7 +1,6 @@
 package com.nablarch.archetype;
 
 import nablarch.common.web.session.SessionUtil;
-import nablarch.core.db.support.DbAccessSupport;
 import nablarch.fw.ExecutionContext;
 import nablarch.fw.web.HttpRequest;
 import nablarch.fw.web.HttpResponse;
@@ -26,7 +25,7 @@ import nablarch.fw.web.HttpResponse;
  *
  * @deprecated TODO 疎通確認用のクラスです。確認完了後、削除してください。
  */
-public class SampleAction extends DbAccessSupport {
+public class SampleAction {
 
     /**
      * @param request リクエストコンテキスト
