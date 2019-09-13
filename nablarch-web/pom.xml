@@ -250,6 +250,13 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing-jetty6</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!--
     NablarchのテスティングフレームワークがJSPのビルド時に使用するコンパイラを差し替え。
     -->
