@@ -12,7 +12,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>5u15-SNAPSHOT</version>
+  <version>5u15</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -51,7 +51,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>4.4.0-SNAPSHOT</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>4.4.0</version.plugins.gsp.dba>
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.22.2</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
