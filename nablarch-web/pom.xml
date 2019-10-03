@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u14</version>
+    <version>5u15</version>
   </parent>
 
   <artifactId>nablarch-web</artifactId>
-  <version>5u14</version>
+  <version>5u15</version>
   <packaging>war</packaging>
 
   <properties>
@@ -66,9 +66,9 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>commons-dbcp</groupId>
-          <artifactId>commons-dbcp</artifactId>
-          <version>1.4</version>
+          <groupId>com.zaxxer</groupId>
+          <artifactId>HikariCP</artifactId>
+          <version>3.3.1</version>
           <scope>runtime</scope>
         </dependency>
       </dependencies>
@@ -217,7 +217,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u14</version>
+        <version>5u15</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -250,6 +250,13 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing-jetty6</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!--
     NablarchのテスティングフレームワークがJSPのビルド時に使用するコンパイラを差し替え。
     -->
