@@ -70,6 +70,18 @@
 
   <!-- セッションストア機能 -->
   <import file="nablarch/webui/session-store.xml" />
+  <!-- 有効期間をDBに保存する -->
+  <component name="sessionStoreHandler" class="nablarch.common.web.session.SessionStoreHandler">
+    <property name="expiration" ref="expiration" />
+  </component>
+  <component name="expiration" class="nablarch.common.web.session.DbManagedExpiration">
+    <!-- データベースへのトランザクション制御を行うクラス -->
+    <property name="dbManager">
+      <component class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+        <property name="dbTransactionName" value="expirationTransaction"/>
+      </component>
+    </property>
+  </component>
   <!-- TODO: アプリケーションサーバが冗長化されている場合は、HIDDENストアの暗号化に使用するコンポーネントのプロパティに明示的に暗号化/復号のキーを設定する。-->
   <!--
   <component name="hiddenStoreEncryptor" class="nablarch.common.encryption.AesEncryptor">
@@ -134,7 +146,6 @@
     </property>
   </component>
 
-
   <!-- 初期化が必要なコンポーネント -->
   <component name="initializer"
              class="nablarch.core.repository.initialization.BasicApplicationInitializer">
@@ -148,6 +159,8 @@
         <component-ref name="dbStore" />
         <!-- パッケージマッピング-->
         <component-ref name="packageMapping"/>
+        <!-- セッションストアの有効期間 -->
+        <component-ref name="expiration"/>
       </list>
     </property>
   </component>
