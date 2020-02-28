@@ -53,6 +53,13 @@
 
   <!-- 二重サブミット防止機能 -->
   <import file="nablarch/webui/double-submission.xml" />
+  <component name="tokenManager" class="nablarch.common.web.token.DbTokenManager">
+    <property name="dbManager">
+      <component class="nablarch.core.db.transaction.SimpleDbTransactionManager">
+        <property name="dbTransactionName" value="tokenTransaction"/>
+      </component>
+    </property>
+  </component>
 
   <!-- hidden暗号化機能を使用しないリクエストID -->
   <list name="noHiddenEncryptionRequestIds">
@@ -161,6 +168,8 @@
         <component-ref name="packageMapping"/>
         <!-- セッションストアの有効期間 -->
         <component-ref name="expiration"/>
+        <!-- 二重サブミット防止機能用TokenManager -->
+        <component-ref name="tokenManager"/>
       </list>
     </property>
   </component>
