@@ -433,7 +433,6 @@
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <webXml>${webxml.path}</webXml>
-          <classifier>${env.classifier}</classifier>
           <archive>
             <manifestEntries>
               <Target-Environment>${env.name}</Target-Environment>
@@ -455,6 +454,11 @@
             </fileset>
           </filesets>
         </configuration>
+      </plugin>
+      <!-- Dockerコンテナ化 -->
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
       </plugin>
       <!-- ================ここから任意で使用するツールの設定================ -->
       <!-- gsp-dba-maven-pluginで自動生成したソースをビルド時に使用するための設定 -->
