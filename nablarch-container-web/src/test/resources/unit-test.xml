@@ -25,7 +25,6 @@
 
   <!-- メインを上書きする設定 -->
   <import file="override_test.xml"/>
-  <import file="override_dev.xml"/>
 
   <!--
   マスタデータ復旧設定
