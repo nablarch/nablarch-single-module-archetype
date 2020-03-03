@@ -8,6 +8,8 @@
 /nablarch-jaxrs/gsp-target
 /nablarch-container-web/target
 /nablarch-container-web/gsp-target
+/nablarch-container-jaxrs/target
+/nablarch-container-jaxrs/gsp-target
 
 **/*.log
 tmp
