@@ -5,7 +5,6 @@
         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration https://nablarch.github.io/schema/component-configuration.xsd">
 
   <import file="rest-component-configuration.xml" />
-  <import file="override_dev.xml" />
 
   <!-- テスティングフレームワークの設定 -->
   <import file="nablarch/test/test-transaction.xml"/>

@@ -59,13 +59,6 @@
         <include>**/*.csv</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>src/env</directory>
-      <includes>
-        <include>**/*.xml</include>
-        <include>**/*.properties</include>
-      </includes>
-    </fileSet>
     <fileSet encoding="UTF-8">
       <directory>h2/db</directory>
       <includes>
@@ -91,12 +84,6 @@
         <include>**/*.bat</include>
         <include>**/*.sh</include>
         <include>**/*.jar</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>src/env</directory>
-      <includes>
-        <include>**/*.config</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
