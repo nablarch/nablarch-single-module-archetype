@@ -68,6 +68,7 @@
     <version.plugins.source>2.4</version.plugins.source>
     <version.plugins.jacoco>0.8.3</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
+    <version.plugins.jib>2.1.0</version.plugins.jib>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
@@ -99,6 +100,8 @@
 
     <release.allow.snapshot>false</release.allow.snapshot>
 
+    <!-- JIBでDockerコンテナを作るときのベースイメージ -->
+    <jib.base.image>tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</jib.base.image>
   </properties>
 
 
@@ -360,6 +363,29 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.google.cloud.tools</groupId>
+          <artifactId>jib-maven-plugin</artifactId>
+          <version>${version.plugins.jib}</version>
+          <configuration>
+            <from>
+              <image>${jib.base.image}</image>
+            </from>
+            <to>
+              <image>${project.artifactId}</image>
+              <tags>
+                <tag>latest</tag>
+                <tag>${project.version}</tag>
+              </tags>
+            </to>
+            <container>
+              <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
+              <ports>
+                <port>8080</port>
+              </ports>
+            </container>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
