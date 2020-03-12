@@ -32,6 +32,9 @@
   -->
   <import file="nablarch/webui/db-for-webui.xml"/>
 
+  <!-- スレッドコンテキストハンドラ -->
+  <import file="nablarch/webui/threadcontext-for-webui.xml"/>
+
 
   <!--パッケージマッピングの設定 -->
   <component name="packageMapping" class="nablarch.integration.router.RoutesMapping">
@@ -58,7 +61,13 @@
 
         <component class="nablarch.fw.handler.GlobalErrorHandler"/>
 
+        <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler"/>
+
         <component class="nablarch.fw.jaxrs.JaxRsResponseHandler" />
+
+        <component-ref name="threadContextHandler"/>
+
+        <component class="nablarch.common.web.handler.HttpAccessLogHandler"/>
 
         <component-ref name="dbConnectionManagementHandler"/>
 

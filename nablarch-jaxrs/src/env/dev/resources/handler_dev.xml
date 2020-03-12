@@ -12,7 +12,13 @@
 
         <component class="nablarch.fw.handler.GlobalErrorHandler"/>
 
+        <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler"/>
+
         <component class="nablarch.fw.jaxrs.JaxRsResponseHandler" />
+
+        <component-ref name="threadContextHandler"/>
+
+        <component class="nablarch.common.web.handler.HttpAccessLogHandler"/>
 
         <component-ref name="dbConnectionManagementHandler"/>
 
