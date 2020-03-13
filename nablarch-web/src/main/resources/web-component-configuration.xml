@@ -55,7 +55,7 @@
   <import file="nablarch/webui/double-submission.xml" />
 
   <!-- スレッドコンテキストハンドラ -->
-  <import file="nablarch/webui/threadcontext-for-webui.xml"/>
+  <import file="nablarch/webui/threadcontext-for-webui-in-sessionstore.xml"/>
 
   <!-- hidden暗号化機能を使用しないリクエストID -->
   <list name="noHiddenEncryptionRequestIds">
