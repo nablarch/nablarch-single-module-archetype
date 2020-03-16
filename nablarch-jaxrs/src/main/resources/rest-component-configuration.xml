@@ -33,7 +33,7 @@
   <import file="nablarch/webui/db-for-webui.xml"/>
 
   <!-- スレッドコンテキストハンドラ -->
-  <import file="nablarch/webui/threadcontext-for-webui.xml"/>
+  <import file="nablarch/webui/threadcontext-for-webui-in-sessionstore.xml"/>
 
 
   <!--パッケージマッピングの設定 -->
