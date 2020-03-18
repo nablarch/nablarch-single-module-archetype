@@ -54,6 +54,9 @@
   <!-- 二重サブミット防止機能 -->
   <import file="nablarch/webui/double-submission.xml" />
 
+  <!-- スレッドコンテキストハンドラ -->
+  <import file="nablarch/webui/threadcontext-for-webui-in-sessionstore.xml"/>
+
   <!-- hidden暗号化機能を使用しないリクエストID -->
   <list name="noHiddenEncryptionRequestIds">
     <!-- <value></value> -->
@@ -107,6 +110,8 @@
 
         <component class="nablarch.fw.handler.GlobalErrorHandler"/>
 
+        <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler"/>
+
         <component class="nablarch.fw.web.handler.HttpResponseHandler"/>
 
         <component class="nablarch.fw.web.handler.SecureHandler" />
@@ -114,6 +119,10 @@
         <component-ref name="multipartHandler"/>
 
         <component-ref name="sessionStoreHandler" />
+
+        <component-ref name="threadContextHandler"/>
+
+        <component class="nablarch.common.web.handler.HttpAccessLogHandler"/>
 
         <component class="nablarch.fw.web.handler.NormalizationHandler" />
 
