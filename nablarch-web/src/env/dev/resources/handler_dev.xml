@@ -12,6 +12,7 @@
       <list>
         <component class="nablarch.fw.web.handler.HttpCharacterEncodingHandler"/>
         <component class="nablarch.fw.handler.GlobalErrorHandler"/>
+        <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler"/>
         <component class="nablarch.fw.web.handler.HttpResponseHandler"/>
 
         <component class="nablarch.fw.web.handler.SecureHandler" />
@@ -33,6 +34,9 @@
           </property>
         </component>
         -->
+        <component-ref name="threadContextHandler"/>
+
+        <component class="nablarch.common.web.handler.HttpAccessLogHandler"/>
 
         <component class="nablarch.fw.web.handler.NormalizationHandler" />
 
