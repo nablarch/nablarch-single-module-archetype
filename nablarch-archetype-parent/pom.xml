@@ -384,6 +384,9 @@
               <ports>
                 <port>8080</port>
               </ports>
+              <environment>
+                <JAVA_OPTS>-Duser.language=ja -Duser.country=JP</JAVA_OPTS>
+              </environment>
             </container>
           </configuration>
         </plugin>
