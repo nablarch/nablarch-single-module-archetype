@@ -371,9 +371,6 @@
           <artifactId>jib-maven-plugin</artifactId>
           <version>${version.plugins.jib}</version>
           <configuration>
-            <to>
-              <image>${project.artifactId}</image>
-            </to>
             <container>
               <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
               <ports>
