@@ -102,6 +102,8 @@
 
     <!-- JIBでDockerコンテナを作るときのベースイメージ -->
     <jib.from.image>tomcat@sha256:e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0</jib.from.image>
+    <!-- 生成するタグ(${project.version} のタグは指定していなくても生成される) -->
+    <jib.to.tags>latest</jib.to.tags>
   </properties>
 
 
@@ -371,10 +373,6 @@
           <configuration>
             <to>
               <image>${project.artifactId}</image>
-              <tags>
-                <tag>latest</tag>
-                <tag>${project.version}</tag>
-              </tags>
             </to>
             <container>
               <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
