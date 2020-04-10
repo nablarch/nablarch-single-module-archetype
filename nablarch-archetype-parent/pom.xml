@@ -100,7 +100,10 @@
 
     <release.allow.snapshot>false</release.allow.snapshot>
 
-    <!-- JIBでDockerコンテナを作るときのベースイメージ -->
+    <!--
+     JIBでDockerコンテナを作るときのベースイメージ
+     https://hub.docker.com/layers/tomcat/library/tomcat/9.0.31-jdk11-adoptopenjdk-hotspot/images/sha256-e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0?context=explore
+    -->
     <jib.from.image>tomcat@sha256:e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0</jib.from.image>
     <!-- 生成するタグ(${project.version} のタグは指定していなくても生成される) -->
     <jib.to.tags>latest</jib.to.tags>
