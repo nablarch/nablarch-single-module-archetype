@@ -101,7 +101,7 @@
     <release.allow.snapshot>false</release.allow.snapshot>
 
     <!-- JIBでDockerコンテナを作るときのベースイメージ -->
-    <jib.from.image>tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</jib.from.image>
+    <jib.from.image>tomcat@sha256:e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0</jib.from.image>
   </properties>
 
 
