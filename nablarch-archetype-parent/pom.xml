@@ -101,7 +101,7 @@
     <release.allow.snapshot>false</release.allow.snapshot>
 
     <!-- JIBでDockerコンテナを作るときのベースイメージ -->
-    <jib.base.image>tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</jib.base.image>
+    <jib.from.image>tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</jib.from.image>
   </properties>
 
 
@@ -369,9 +369,6 @@
           <artifactId>jib-maven-plugin</artifactId>
           <version>${version.plugins.jib}</version>
           <configuration>
-            <from>
-              <image>${jib.base.image}</image>
-            </from>
             <to>
               <image>${project.artifactId}</image>
               <tags>
