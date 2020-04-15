@@ -133,76 +133,6 @@
             <artifactId>${dba.testDataArtifactId}</artifactId>
           </configuration>
         </plugin>
-        <!--
-          Mavenの各フェーズで自動実行するように設定するゴールについて、Eclipseのm2eプラグインがどのように扱うかを設定しておく。
-          設定しないと、プロジェクトをEclipseに取り込んだ際に、"Plugin execution not covered by lifecycle configuration”という
-          エラーが発生するため。
-          参考） https://www.eclipse.org/m2e/documentation/m2e-execution-not-covered.html
-        -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>jp.co.tis.gsp</groupId>
-                    <artifactId>gsp-dba-maven-plugin</artifactId>
-                    <versionRange>${version.plugins.gsp.dba}</versionRange>
-                    <goals>
-                      <goal>execute-ddl</goal>
-                      <goal>export-schema</goal>
-                      <goal>generate-ddl</goal>
-                      <goal>generate-entity</goal>
-                      <goal>generate-enum</goal>
-                      <goal>generate-minor-ddl</goal>
-                      <goal>generate-service</goal>
-                      <goal>import-schema</goal>
-                      <goal>load-data</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <!-- gsp-dba-maven-plugin は、Eclipseビルド時に実行される必要はない。 -->
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <versionRange>[1.0,)</versionRange>
-                    <goals>
-                      <goal>run</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <!--
-                      JSP静的解析ツールの実行は、Eclipseのビルド時には除外。
-                    -->
-                    <ignore />
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <versionRange>[0.7,)</versionRange>
-                    <goals>
-                      <goal>prepare-agent</goal>
-                      <goal>prepare-agent-integration</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-
         <!-- Maven提供のプラグイン -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -223,6 +153,8 @@
                   </ant>
                 </target>
               </configuration>
+              <!-- m2e: this execution will be ignored. -->
+              <?m2e ignore?>              
             </execution>
             <execution>
               <!-- antrun:run で実行するために、id を default-cli にしておく。 -->
@@ -239,6 +171,8 @@
                   </ant>
                 </target>
               </configuration>
+              <!-- m2e: this execution will be ignored. -->
+              <?m2e ignore?>              
             </execution>
           </executions>
           <dependencies>
@@ -311,12 +245,16 @@
               <goals>
                 <goal>prepare-agent</goal>
               </goals>
+              <!-- m2e: this execution will be ignored. -->
+              <?m2e ignore?>              
             </execution>
             <execution>
               <id>prepare-jacoco-runtime-agent-for-integration-test</id>
               <goals>
                 <goal>prepare-agent-integration</goal>
               </goals>
+              <!-- m2e: this execution will be ignored. -->
+              <?m2e ignore?>              
             </execution>
             <!-- SonarQubeやJenkinsで結果を見る場合、カバレッジレポートの出力は不要。 -->
           </executions>
@@ -358,6 +296,11 @@
                   <source>${dba.entity.javaFileDestDir}</source>
                 </sources>
               </configuration>
+              <!--
+                this execution will be executed on every Project Configuration update,
+                will not be executed on every incremental build.
+              -->
+              <?m2e execute onConfiguration?>              
             </execution>
           </executions>
         </plugin>
