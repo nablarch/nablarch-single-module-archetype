@@ -8,9 +8,11 @@ import org.json.JSONException;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.xmlunit.builder.Input;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+import static org.xmlunit.matchers.CompareMatcher.isSimilarTo;
 
 /**
  * {@link SampleAction}のテストクラス。
@@ -67,6 +69,6 @@ public class SampleApiTest extends RestTestSupport {
         RestMockHttpRequest request = requestBuilder.get("/find/xml");
         HttpResponse response = sendRequest(request);
         assertStatusCode(message, HttpResponse.Status.OK.getStatusCode(), response);
-        assertEquals(message, XML_RESPONSE, response.getBodyString());
+        assertThat(Input.fromString(response.getBodyString()), isSimilarTo(Input.fromString(XML_RESPONSE)));
     }
 }
