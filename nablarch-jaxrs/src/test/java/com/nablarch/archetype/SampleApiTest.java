@@ -1,8 +1,6 @@
 package com.nablarch.archetype;
 
 import nablarch.fw.web.HttpResponse;
-import nablarch.fw.web.RestMockHttpRequest;
-import nablarch.fw.web.RestMockHttpRequestBuilder;
 import nablarch.test.core.http.RestTestSupport;
 import org.json.JSONException;
 import org.junit.Test;
@@ -45,9 +43,7 @@ public class SampleApiTest extends RestTestSupport {
     @Test
     public void testFindJson() {
         String message = "ユーザー一覧取得（JSON）";
-        RestMockHttpRequestBuilder requestBuilder = getHttpRequestBuilder();
-        RestMockHttpRequest request = requestBuilder.get("/find/json");
-        HttpResponse response = sendRequest(request);
+        HttpResponse response = sendRequest(get("/find/json"));
         assertStatusCode(message, HttpResponse.Status.OK.getStatusCode(), response);
 
         try {
@@ -65,9 +61,7 @@ public class SampleApiTest extends RestTestSupport {
     @Test
     public void testFindXml() {
         String message = "ユーザー一覧取得（XML）";
-        RestMockHttpRequestBuilder requestBuilder = getHttpRequestBuilder();
-        RestMockHttpRequest request = requestBuilder.get("/find/xml");
-        HttpResponse response = sendRequest(request);
+        HttpResponse response = sendRequest(get("/find/xml"));
         assertStatusCode(message, HttpResponse.Status.OK.getStatusCode(), response);
         assertThat(Input.fromString(response.getBodyString()), isSimilarTo(Input.fromString(XML_RESPONSE)));
     }
