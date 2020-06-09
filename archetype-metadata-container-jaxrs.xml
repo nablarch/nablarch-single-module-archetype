@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="nablarch-container-jaxrs"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.config</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.edm</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources/META-INF</directory>
+      <includes>
+        <include>services/*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.xml</include>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="MS932">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.csv</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>h2/db</directory>
+      <includes>
+        <include>**/*.org</include>
+        <include>**/*.db</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="MS932">
+      <directory>db/data</directory>
+      <includes>
+        <include>**/*.sql</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="MS932">
+      <directory>db/ddl</directory>
+      <includes>
+        <include>**/*.sql</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>h2/bin</directory>
+      <includes>
+        <include>**/*.bat</include>
+        <include>**/*.sh</include>
+        <include>**/*.jar</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/jib</directory>
+      <includes>
+        <include>**/*.properties</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>README.md</include>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
