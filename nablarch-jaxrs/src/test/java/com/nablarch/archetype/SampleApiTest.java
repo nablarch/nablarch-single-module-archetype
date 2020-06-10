@@ -9,7 +9,6 @@ import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.xmlunit.builder.Input;
 
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.xmlunit.matchers.CompareMatcher.isSimilarTo;
 
 /**
@@ -41,17 +40,12 @@ public class SampleApiTest extends RestTestSupport {
      * レスポンスがJSON
      */
     @Test
-    public void testFindJson() {
+    public void testFindJson() throws JSONException {
         String message = "ユーザー一覧取得（JSON）";
         HttpResponse response = sendRequest(get("/find/json"));
-        assertStatusCode(message, HttpResponse.Status.OK.getStatusCode(), response);
-
-        try {
-            JSONAssert.assertEquals(message, JSON_RESPONSE
-                    , response.getBodyString(), JSONCompareMode.LENIENT);
-        } catch (JSONException e) {
-            fail(e.getMessage());
-        }
+        assertStatusCode(message, HttpResponse.Status.OK, response);
+        JSONAssert.assertEquals(message, JSON_RESPONSE
+                , response.getBodyString(), JSONCompareMode.LENIENT);
     }
 
     /**
@@ -62,7 +56,7 @@ public class SampleApiTest extends RestTestSupport {
     public void testFindXml() {
         String message = "ユーザー一覧取得（XML）";
         HttpResponse response = sendRequest(get("/find/xml"));
-        assertStatusCode(message, HttpResponse.Status.OK.getStatusCode(), response);
+        assertStatusCode(message, HttpResponse.Status.OK, response);
         assertThat(Input.fromString(response.getBodyString()), isSimilarTo(Input.fromString(XML_RESPONSE)));
     }
 }
