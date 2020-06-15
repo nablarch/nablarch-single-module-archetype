@@ -7,7 +7,9 @@
   <import file="rest-component-configuration.xml" />
 
   <!-- テスティングフレームワークの設定 -->
+  <import file="nablarch/test/test-data.xml"/>
   <import file="nablarch/test/test-transaction.xml"/>
+  <import file="nablarch/test/rest-request-test.xml"/>
 
   <!-- TODO: 使用するDBに合せて設定してください。 -->
   <!-- Oracle用の設定 -->
