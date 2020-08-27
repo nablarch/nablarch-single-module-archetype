@@ -1,5 +1,0 @@
-<routes>
-  <get   path="find/json" to="Sample#findProducesJson" />
-  <get   path="find/xml"  to="Sample#findProducesXml" />
-  <match path="/:controller/:action/" />
-</routes>
