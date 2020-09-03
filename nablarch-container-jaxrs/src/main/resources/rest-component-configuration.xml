@@ -28,7 +28,7 @@
   <import file="data-source.xml" />
 
   <!-- スレッドコンテキストハンドラ -->
-  <import file="nablarch/webui/threadcontext-for-webui-in-sessionstore.xml"/>
+  <import file="nablarch/webui/threadcontext-for-webui.xml"/>
 
   <!--パッケージマッピングの設定 -->
   <component name="packageMapping" class="nablarch.integration.router.PathOptionsProviderRoutesMapping">
