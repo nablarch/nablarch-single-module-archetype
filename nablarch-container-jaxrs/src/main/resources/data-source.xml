@@ -14,10 +14,15 @@
   <!-- TODO: プロジェクトで使用するDB製品にあわせた定義を設定してください。 -->
   <component name="dataSource"
              class="com.zaxxer.hikari.HikariDataSource" autowireType="None">
-    <property name="driverClassName" value="${nablarch.db.jdbcDriver}"/>
-    <property name="jdbcUrl"         value="${nablarch.db.url}"/>
-    <property name="username"        value="${nablarch.db.user}"/>
-    <property name="password"        value="${nablarch.db.password}"/>
-    <property name="maximumPoolSize" value="${nablarch.db.maxPoolSize}"/>
+    <property name="driverClassName"   value="${nablarch.db.jdbcDriver}"/>
+    <property name="jdbcUrl"           value="${nablarch.db.url}"/>
+    <property name="username"          value="${nablarch.db.user}"/>
+    <property name="password"          value="${nablarch.db.password}"/>
+    <property name="maximumPoolSize"   value="${nablarch.db.maxPoolSize}"/>
+    <property name="minimumIdle"       value="${nablarch.db.minimumIdle}"/>
+    <property name="connectionTimeout" value="${nablarch.db.connectionTimeout}"/>
+    <property name="idleTimeout"       value="${nablarch.db.idleTimeout}"/>
+    <property name="maxLifetime"       value="${nablarch.db.maxLifetime}"/>
+    <property name="validationTimeout" value="${nablarch.db.validationTimeout}"/>
   </component>
 </component-configuration>

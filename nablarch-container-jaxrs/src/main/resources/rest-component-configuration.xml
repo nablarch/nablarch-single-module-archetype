@@ -87,4 +87,16 @@
       </list>
     </property>
   </component>
+
+  <!-- 廃棄が必要なコンポーネント -->
+  <component name="disposer"
+             class="nablarch.core.repository.disposal.BasicApplicationDisposer">
+    <property name="disposableList">
+      <list>
+        <component class="nablarch.core.repository.disposal.DisposableAdaptor">
+          <property name="target" ref="dataSource" />
+        </component>
+      </list>
+    </property>
+  </component>
 </component-configuration>
