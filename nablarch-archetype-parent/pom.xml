@@ -100,11 +100,6 @@
 
     <release.allow.snapshot>false</release.allow.snapshot>
 
-    <!--
-     JIBでDockerコンテナを作るときのベースイメージ
-     https://hub.docker.com/layers/tomcat/library/tomcat/9.0.36-jdk11-adoptopenjdk-hotspot/images/sha256-7d59567f61e79f5dc1226a3ee26b4a4c2befc5cae182f7e0823199cf5885409b?context=explore
-    -->
-    <jib.from.image>tomcat@sha256:7d59567f61e79f5dc1226a3ee26b4a4c2befc5cae182f7e0823199cf5885409b</jib.from.image>
     <!-- 生成するイメージの名前 -->
     <jib.to.image>${project.artifactId}</jib.to.image>
     <!-- 生成するタグ -->
@@ -377,10 +372,6 @@
           <version>${version.plugins.jib}</version>
           <configuration>
             <container>
-              <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
-              <ports>
-                <port>8080</port>
-              </ports>
               <environment>
                 <JAVA_OPTS>-Duser.language=ja -Duser.country=JP</JAVA_OPTS>
               </environment>
