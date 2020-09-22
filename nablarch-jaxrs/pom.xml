@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u18-SNAPSHOT</version>
+    <version>5u18</version>
   </parent>
 
   <artifactId>nablarch-jaxrs</artifactId>
-  <version>5u18-SNAPSHOT</version>
+  <version>5u18</version>
   <packaging>war</packaging>
 
   <properties>
@@ -216,7 +216,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u18-SNAPSHOT</version>
+        <version>5u18</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
