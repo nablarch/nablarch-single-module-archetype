@@ -12,7 +12,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>5u17</version>
+  <version>5u18</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -51,7 +51,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>4.4.0</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>4.4.1</version.plugins.gsp.dba>
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.22.2</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
@@ -68,6 +68,7 @@
     <version.plugins.source>2.4</version.plugins.source>
     <version.plugins.jacoco>0.8.3</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
+    <version.plugins.jib>2.1.0</version.plugins.jib>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
@@ -99,6 +100,10 @@
 
     <release.allow.snapshot>false</release.allow.snapshot>
 
+    <!-- 生成するイメージの名前 -->
+    <jib.to.image>${project.artifactId}</jib.to.image>
+    <!-- 生成するタグ -->
+    <jib.to.tags>latest,${project.version}</jib.to.tags>
   </properties>
 
 
@@ -360,6 +365,18 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.google.cloud.tools</groupId>
+          <artifactId>jib-maven-plugin</artifactId>
+          <version>${version.plugins.jib}</version>
+          <configuration>
+            <container>
+              <environment>
+                <JAVA_OPTS>-Duser.language=ja -Duser.country=JP</JAVA_OPTS>
+              </environment>
+            </container>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
