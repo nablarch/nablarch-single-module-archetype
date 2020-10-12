@@ -1,11 +1,6 @@
 nablarch-single-module-archetype
 ================================
 
-| master | develop |
-|:-----------|:------------|
-|[![Build Status](https://travis-ci.org/nablarch/nablarch-single-module-archetype.svg?branch=master)](https://travis-ci.org/nablarch/nablarch-single-module-archetype)|[![Build Status](https://travis-ci.org/nablarch/nablarch-single-module-archetype.svg?branch=develop)](https://travis-ci.org/nablarch/nablarch-single-module-archetype)|
-
-
 # 概要
 
 アーキタイプ及び、アーキタイプが参照するparentです。
