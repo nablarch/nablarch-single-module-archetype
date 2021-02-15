@@ -21,7 +21,7 @@ sed -i -e "s/com\/nablarch\/archetype/\${packageInPathFormat}/g" pom.xml
 # pom.xmlファイル中のprofile名を修正する。
 sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactId>nablarch-jaxrs<\/artifactId>/g" pom.xml
 # configファイル中のパッケージを置換文字列にする。
-sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.config
+sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
 popd
 
 # このあと、nablarch-jaxrs/target/generated-sources/archetypeで「mvn install」を実行するとアーキタイプをインストールできる。

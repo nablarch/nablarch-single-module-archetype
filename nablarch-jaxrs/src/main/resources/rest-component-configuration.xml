@@ -20,8 +20,8 @@
   <component name="validationStrategy" class="nablarch.common.web.validator.BeanValidationStrategy" />
 
   <!-- 環境設定ファイル -->
-  <config-file file="common.config" />
-  <config-file file="env.config" />
+  <config-file file="common.properties"/>
+  <config-file file="env.properties"/>
 
   <!-- データベース設定 -->
   <!--
