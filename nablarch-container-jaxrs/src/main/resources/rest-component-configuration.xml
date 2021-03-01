@@ -24,7 +24,7 @@
   <config-file file="env.properties"/>
 
   <!-- データベース設定 -->
-  <import file="nablarch/webui/db-for-webui.xml"/>
+  <import file="nablarch/core/db-base.xml" />
   <import file="data-source.xml" />
 
   <!-- スレッドコンテキストハンドラ -->
