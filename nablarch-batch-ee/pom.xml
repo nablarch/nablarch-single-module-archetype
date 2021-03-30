@@ -323,7 +323,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>24.1.1-jre</version>
+      <version>29.0-jre</version>
     </dependency>
 
     <!-- JBereteをJavaSEで動作させるための依存関係 -->
