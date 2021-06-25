@@ -22,8 +22,6 @@ sed -i -e "s/com\/nablarch\/archetype/\${packageInPathFormat}/g" pom.xml
 sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactId>nablarch-batch-ee<\/artifactId>/g" pom.xml
 # configファイル中のパッケージを置換文字列にする。
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
-# etl.json中のパッケージを置換文字列にする。
-sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/META-INF/etl-config/sample-etl.json
 # SQLファイルを移動。
 mv src/main/resources/com/nablarch/archetype/entity/*.sql src/main/resources/entity/
 popd
