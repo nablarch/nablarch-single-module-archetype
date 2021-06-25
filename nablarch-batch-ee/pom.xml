@@ -259,10 +259,6 @@
       <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-fw-batch-ee</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-etl</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.hibernate</groupId>
