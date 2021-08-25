@@ -17,6 +17,7 @@ nablarch-single-module-archetype
 |nablarch-jaxrs           |RESTfulウェブサービス用アーキタイプ。                  |
 |nablarch-batch           |Nablarchバッチアプリケーション用アーキタイプ。         |
 |nablarch-batch-ee        |JSR352に準拠したバッチアプリケーション用アーキタイプ。 |
+|nablarch-container-batch |NablarchバッチアプリケーションのDockerコンテナ用アーキタイプ。 |
 |nablarch-container-web   |ウェブアプリケーションのDockerコンテナ用アーキタイプ。 |
 |nablarch-container-jaxrs |RESTfulウェブサービスのDockerコンテナ用アーキタイプ。 |
 
@@ -92,6 +93,22 @@ cd nablarch-batch-ee/target/generated-sources/archetype/
 mvn install
 ```
 
+## nablarch-container-batch
+
+```
+# nablarch-container-batchプロジェクトをベースにアーキタイプを生成
+pushd nablarch-container-batch
+mvn clean archetype:create-from-project
+popd
+
+# 独自のカスタマイズを加える
+./pre-create-maven-archetype-container-batch.sh
+
+cd nablarch-container-batch/target/generated-sources/archetype/
+mvn install
+```
+
+
 ## nablarch-container-web
 
 ```
@@ -156,6 +173,13 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGrou
 
 ```
 mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion=xxx
+```
+(xxxの箇所は、適切なバージョンを指定してください)
+
+## nablarch-container-batch
+
+```
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
