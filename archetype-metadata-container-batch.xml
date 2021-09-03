@@ -74,7 +74,7 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory>h2/db</directory>
+      <directory>src/main/jib/h2/db</directory>
       <includes>
         <include>**/*.org</include>
         <include>**/*.db</include>
@@ -93,7 +93,7 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory>h2/bin</directory>
+      <directory>src/main/jib/h2/bin</directory>
       <includes>
         <include>**/*.bat</include>
         <include>**/*.sh</include>

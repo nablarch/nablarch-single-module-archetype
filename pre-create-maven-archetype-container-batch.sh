@@ -22,6 +22,12 @@ sed -i -e "s/com\/nablarch\/archetype/\${packageInPathFormat}/g" pom.xml
 sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactId>nablarch-container-batch<\/artifactId>/g" pom.xml
 # configファイル中のパッケージを置換文字列にする。
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
+# env.propertiesファイル中のnablarch.db.urlをデータファイルの移動にあわせるよう修正する。
+sed -i -e "s|nablarch.db.url=jdbc:h2:./h2|nablarch.db.url=jdbc:h2:./src/main/jib/h2|g" src/main/resources/env.properties
+# pom.xmlファイル中のnablarch.db.urlをデータファイルの移動にあわせるよう修正する。
+sed -i -e "s|<nablarch\.db\.url>jdbc:h2:\./h2/db/SAMPLE</nablarch\.db\.url>|<nablarch.db.url>jdbc:h2:./src/main/jib/h2/db/SAMPLE</nablarch.db.url>|g" pom.xml
+# データファイルをjibのイメージ収集用ディレクトリに移動する
+mv h2 src/main/jib/
 popd
 
 # このあと、nablarch-container-batch/target/generated-sources/archetypeで「mvn install」を実行するとアーキタイプをインストールできる。
