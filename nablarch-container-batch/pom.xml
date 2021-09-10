@@ -382,25 +382,6 @@
           </archive>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <descriptors>
-                <descriptor>distribution.xml</descriptor>
-              </descriptors>
-              <finalName>${project.artifactId}-${project.version}</finalName>
-              <appendAssemblyId>false</appendAssemblyId>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <!-- Dockerコンテナ化 -->
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
