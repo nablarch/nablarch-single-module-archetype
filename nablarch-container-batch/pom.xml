@@ -25,11 +25,12 @@
     <nablarch.db.user>SAMPLE</nablarch.db.user>
     <nablarch.db.password>SAMPLE</nablarch.db.password>
     <nablarch.db.schema>PUBLIC</nablarch.db.schema>
+    
     <!--
      JIBでDockerコンテナを作るときのベースイメージ
-     https://hub.docker.com/layers/adoptopenjdk/library/adoptopenjdk/11.0.11_9-jre-hotspot/images/sha256-df316691a2c655de2f835a626f8611c74af67dad2cf92711f6608b54e5aa6c61?context=explore
+     プロジェクトでの使用時にはハッシュ値で指定し、バージョンなどを固定すること。
     -->
-    <jib.from.image>adoptopenjdk@sha256:df316691a2c655de2f835a626f8611c74af67dad2cf92711f6608b54e5aa6c61</jib.from.image>
+    <jib.from.image>adoptopenjdk:11.0.11_9-jre-hotspot</jib.from.image>
 
   </properties>
 
