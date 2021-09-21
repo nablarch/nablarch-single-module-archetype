@@ -392,6 +392,7 @@
         <configuration>
           <container>
             <mainClass>nablarch.fw.launcher.Main</mainClass>
+            <!--TODO: JIBでDockerコンテナを作るときのデフォルトのOS環境変数値はPJ要件に合わせて修正してください。 -->
             <environment>
               <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_INPUT>file:/var/nablarch/input</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_INPUT>
               <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>file:/var/nablarch/output</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>

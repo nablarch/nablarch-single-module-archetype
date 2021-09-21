@@ -437,6 +437,7 @@
             <ports>
               <port>8080</port>
             </ports>
+            <!--TODO: JIBでDockerコンテナを作るときのデフォルトのOS環境変数値はPJ要件に合わせて修正してください。 -->
             <environment>
               <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_UPLOADFILETMPDIR>file:/var/tmp/upload</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_UPLOADFILETMPDIR>
               <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>file:/var/nablarch/output</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>
