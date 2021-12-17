@@ -55,7 +55,7 @@
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.22.2</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
-    <version.plugins.war>2.5</version.plugins.war>
+    <version.plugins.war>3.3.2</version.plugins.war>
     <version.plugins.assembly>2.5.1</version.plugins.assembly>
     <version.plugins.clean>2.5</version.plugins.clean>
     <version.plugins.deploy>2.8.2</version.plugins.deploy>
