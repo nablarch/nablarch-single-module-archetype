@@ -97,6 +97,7 @@
       <includes>
         <include>**/*.xsl</include>
         <include>**/*.txt</include>
+        <include>**/*.config</include>
       </includes>
     </fileSet>
     <fileSet encoding="MS932">
