@@ -8,6 +8,9 @@
   <!-- テーブル定義 -->
   <import file="nablarch/schema-config.xml" />
 
+  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
+
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
@@ -86,6 +89,8 @@
              class="nablarch.core.repository.initialization.BasicApplicationInitializer">
     <property name="initializeList">
       <list>
+        <!-- common/message-by-property-files.xml:リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
         <!-- common/date.xml:業務日付コンポーネント -->
         <component-ref name="businessDateProvider" />
         <!-- common/mail/sender/handler/residentProcessStop.xml:プロセス停止ハンドラ -->

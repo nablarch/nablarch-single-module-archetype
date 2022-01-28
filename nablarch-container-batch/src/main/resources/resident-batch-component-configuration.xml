@@ -14,6 +14,9 @@
   <!-- DomainManager 実装クラス設定 -->
   <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
 
+  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
+
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
@@ -118,6 +121,8 @@
         <component-ref name="codeLoader" />
         <!-- common/code.xml:コードのキャッシュ -->
         <component-ref name="codeCache" />
+        <!-- common/message-by-property-files.xml:リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
         <!-- batch/handler/processStop.xml:処理停止ハンドラ -->
         <component-ref name="processStopHandler" />
       </list>

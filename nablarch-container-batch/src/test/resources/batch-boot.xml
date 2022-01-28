@@ -21,6 +21,8 @@
         <component-ref name="codeLoader"/>
         <!-- コードのキャッシュ -->
         <component-ref name="codeCache"/>
+        <!-- リソースのキャッシュ -->
+        <component-ref name="stringResourceCache"/>
       </list>
     </property>
   </component>
