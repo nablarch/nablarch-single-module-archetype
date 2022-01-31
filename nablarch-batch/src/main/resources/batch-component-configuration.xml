@@ -14,9 +14,6 @@
   <!-- DomainManager 実装クラス設定 -->
   <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
 
-  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-  <import file="nablarch/core/message-by-property-files.xml"/>
-
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
@@ -24,6 +21,8 @@
   <!-- Nablarch共通機能 -->
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml"/>
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
   <!-- 自動採番型を持たないRDBMSで、ユニバーサルDAOを使用するための設定 -->
   <import file="nablarch/common/dao.xml" />
   <!-- 日付 -->

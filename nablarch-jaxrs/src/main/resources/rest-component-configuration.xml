@@ -10,6 +10,9 @@
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml"/>
 
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
+
   <!-- 精査に使用する文字集合定義 -->
   <import file="nablarch/core/validation/charset-definition.xml" />
 
@@ -18,9 +21,6 @@
 
   <!-- BeanValidation実装クラス -->
   <component name="validationStrategy" class="nablarch.common.web.validator.BeanValidationStrategy" />
-
-  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-  <import file="nablarch/core/message-by-property-files.xml"/>
 
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>

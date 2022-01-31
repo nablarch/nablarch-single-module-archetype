@@ -16,9 +16,6 @@
   <!-- BeanValidation実装クラス -->
   <component name="validationStrategy" class="nablarch.common.web.validator.BeanValidationStrategy" />
 
-  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-  <import file="nablarch/core/message-by-property-files.xml"/>
-
   <!-- 環境設定ファイル -->
   <config-file file="common.properties" />
   <config-file file="env.properties" />
@@ -26,10 +23,10 @@
   <!-- Nablarch共通機能 -->
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml"/>
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
   <!-- 自動採番型を持たないRDBMSで、ユニバーサルDAOを使用するための設定 -->
   <import file="nablarch/common/dao.xml" />
-  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-  <import file="nablarch/core/message-by-property-files.xml"/>
 
   <!-- web固有設定の読み込み -->
   <!-- データベース設定 -->
@@ -166,10 +163,10 @@
         <component-ref name="codeLoader" />
         <!-- web/code.xml:コードのキャッシュ -->
         <component-ref name="codeCache" />
-        <!-- web/session-store.xml:DBストア-->
-        <component-ref name="dbStore" />
         <!-- web/message-by-property-files.xml:リソースのキャッシュ -->
         <component-ref name="stringResourceCache" />
+        <!-- web/session-store.xml:DBストア-->
+        <component-ref name="dbStore" />
         <!-- パッケージマッピング-->
         <component-ref name="packageMapping"/>
         <!-- セッションストアの有効期間 -->

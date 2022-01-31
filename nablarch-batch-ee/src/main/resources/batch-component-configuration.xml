@@ -13,9 +13,6 @@
     <!-- DomainManager 実装クラス設定 -->
     <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
 
-    <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-    <import file="nablarch/core/message-by-property-files.xml"/>
-
     <!-- 環境設定 -->
     <config-file file="env.properties"/>
     <config-file file="common.properties"/>
@@ -25,6 +22,8 @@
     <import file="nablarch/core/date.xml"/>
     <!-- コード機能 -->
     <import file="nablarch/common/code.xml"/>
+    <!-- メッセージ機能の設定 -->
+    <import file="nablarch/core/message-by-property-files.xml"/>
     <!-- シーケンスを使用した自動採番設定  -->
     <import file="nablarch/common/dao.xml" />
 

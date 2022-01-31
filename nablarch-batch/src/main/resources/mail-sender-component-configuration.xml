@@ -8,9 +8,6 @@
   <!-- テーブル定義 -->
   <import file="nablarch/schema-config.xml" />
 
-  <!-- プロパティファイルによるメッセージ管理機能の設定 -->
-  <import file="nablarch/core/message-by-property-files.xml"/>
-
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
@@ -18,6 +15,8 @@
   <!-- Nablarch共通機能 -->
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml" />
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
   <!-- 日付 -->
   <import file="nablarch/core/date.xml"/>
 
