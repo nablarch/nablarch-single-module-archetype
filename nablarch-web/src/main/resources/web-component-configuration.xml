@@ -23,6 +23,8 @@
   <!-- Nablarch共通機能 -->
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml"/>
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
   <!-- 自動採番型を持たないRDBMSで、ユニバーサルDAOを使用するための設定 -->
   <import file="nablarch/common/dao.xml" />
 
@@ -151,6 +153,8 @@
         <component-ref name="codeLoader" />
         <!-- web/code.xml:コードのキャッシュ -->
         <component-ref name="codeCache" />
+        <!-- web/message-by-property-files.xml:リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
         <!-- web/session-store.xml:DBストア-->
         <component-ref name="dbStore" />
         <!-- パッケージマッピング-->
