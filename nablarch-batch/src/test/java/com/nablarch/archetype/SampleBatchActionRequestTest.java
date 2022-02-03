@@ -1,21 +1,24 @@
 package com.nablarch.archetype;
 
-import org.junit.Test;
+import com.nablarch.archetype.test.XxxxBatchRequestExtension;
 
-import com.nablarch.archetype.test.BatchRequestTestBase;
+import com.nablarch.archetype.test.XxxxBatchRequestTestSupport;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * {@link SampleBatch}のテストクラス。
  *
  * @deprecated TODO 疎通確認完了後、削除して下さい。
  */
-public class SampleBatchActionRequestTest extends BatchRequestTestBase {
-
+@ExtendWith(XxxxBatchRequestExtension.class)
+class SampleBatchActionRequestTest {
+    XxxxBatchRequestTestSupport support;
 
     /** 正常終了のテストケース。 */
     @Test
-    public void testNormalEnd() {
-        execute();
+    void testNormalEnd() {
+        support.execute(support.testName.getMethodName());
     }
 
 }
