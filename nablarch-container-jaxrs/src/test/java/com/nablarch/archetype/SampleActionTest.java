@@ -1,11 +1,11 @@
 package com.nablarch.archetype;
 
 import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.List;
 
-import org.junit.Test;
+import nablarch.test.junit5.extension.db.DbAccessTest;
 
 import com.nablarch.archetype.dto.SampleUserListDto;
 import com.nablarch.archetype.entity.SampleUser;
@@ -13,13 +13,16 @@ import com.nablarch.archetype.entity.SampleUser;
 import nablarch.common.dao.EntityList;
 import nablarch.fw.web.MockHttpRequest;
 import nablarch.test.core.db.DbAccessTestSupport;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@link SampleAction}のテストクラス。
  *
  * @deprecated TODO 疎通確認用のクラスです。確認完了後、削除してください。
  */
-public class SampleActionTest extends DbAccessTestSupport {
+@DbAccessTest
+class SampleActionTest {
+    DbAccessTestSupport support;
 
     /**
      * 正常終了のテストケース。
@@ -28,7 +31,7 @@ public class SampleActionTest extends DbAccessTestSupport {
      * </p>
      */
     @Test
-    public void testFind() {
+    void testFind() {
         //テスト対象インスタンス化
         SampleAction target = new SampleAction();
 
@@ -53,7 +56,7 @@ public class SampleActionTest extends DbAccessTestSupport {
      * </p>
      */
     @Test
-    public void testFindUsingXml() {
+    void testFindUsingXml() {
         //テスト対象インスタンス化
         SampleAction target = new SampleAction();
 
