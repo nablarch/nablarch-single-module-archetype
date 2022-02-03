@@ -11,24 +11,28 @@ import nablarch.test.core.http.TestCaseInfo;
  * 本プロジェクト専用の{@link HttpRequestTestSupport}継承クラス。<br/>
  * プロジェクト固有の共通処理を提供する。
  * 画面オンライン処理方式のリクエスト単体テストを作成する場合、
- * {@link HttpRequestTestSupport}を直接継承するのではなく、
- * 本クラスを継承すること。
+ * {@link HttpRequestTestSupport}を直接使用するのではなく、
+ * 本クラスを使用すること。
  */
-// TODO XxxxをPJ名に変更してください(例:MyProjectHttpRequestTestBase)。
-public abstract class XxxxHttpRequestTestBase
+// TODO XxxxをPJ名に変更してください(例:MyProjectHttpRequestTestSupport)。
+public class XxxxHttpRequestTestSupport
         extends AbstractHttpRequestTestTemplate<TestCaseInfo> {
 
-    /** コンストラクタ。*/
-    protected XxxxHttpRequestTestBase() {
-        super();
-    }
+    private final String baseUri;
 
     /**
      * コンストラクタ。
      * @param testClass テストクラス
+     * @param baseUri ベースURI
      */
-    public XxxxHttpRequestTestBase(Class<?> testClass) {
+    public XxxxHttpRequestTestSupport(Class<?> testClass, String baseUri) {
         super(testClass);
+        this.baseUri = baseUri;
+    }
+
+    @Override
+    protected String getBaseUri() {
+        return baseUri;
     }
 
     /**

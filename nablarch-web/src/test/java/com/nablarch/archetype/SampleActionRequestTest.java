@@ -1,11 +1,10 @@
 package com.nablarch.archetype;
 
-import org.junit.ComparisonFailure;
-import org.junit.Test;
-
-import com.nablarch.archetype.test.XxxxHttpRequestTestBase;
-
+import com.nablarch.archetype.test.XxxxHttpRequestTest;
+import com.nablarch.archetype.test.XxxxHttpRequestTestSupport;
 import nablarch.core.repository.SystemRepository;
+import org.junit.ComparisonFailure;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -13,17 +12,14 @@ import nablarch.core.repository.SystemRepository;
  *
  * @deprecated TODO 疎通確認用のクラスです。確認完了後、削除してください。
  */
-public class SampleActionRequestTest extends XxxxHttpRequestTestBase {
-
-    @Override
-    protected String getBaseUri() {
-        return "/action/";
-    }
+@XxxxHttpRequestTest(baseUri = "/action/")
+class SampleActionRequestTest {
+    XxxxHttpRequestTestSupport support;
 
     @Test
-    public void 疎通確認() {
+    void 疎通確認() {
         try {
-            execute("疎通確認");
+            support.execute("疎通確認");
         } catch (ComparisonFailure e) {
             // 疎通確認失敗時にエラーメッセージを出力する。
             // 疎通確認用の処理であり、通常はこのような処理は行わない。
