@@ -9,9 +9,11 @@
 /nablarch-container-web/target
 /nablarch-container-web/gsp-target
 /nablarch-container-jaxrs/target
+/nablarch-container-batch/target
 /nablarch-container-jaxrs/gsp-target
 
 **/*.log
 tmp
 work
-/.idea
+.idea
+*.iml
