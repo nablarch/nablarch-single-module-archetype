@@ -4,9 +4,10 @@ import com.nablarch.archetype.chunk.SampleProcessor;
 import com.nablarch.archetype.entity.SampleUser;
 import nablarch.common.dao.UniversalDao;
 import nablarch.test.core.db.DbAccessTestSupport;
-import org.junit.Test;
+import nablarch.test.junit5.extension.db.DbAccessTest;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * {@link SampleProcessor}のテストクラス
@@ -14,13 +15,15 @@ import static org.junit.Assert.assertEquals;
  * <p>
  * @deprecated TODO 疎通確認が終わったら削除してください。
  */
-public class SampleBatchletTest extends DbAccessTestSupport{
+@DbAccessTest
+class SampleBatchletTest {
+    DbAccessTestSupport support;
 
     /**
      * {@link SampleBatchlet#process()} のテスト
      */
     @Test
-    public void testProcess() {
+    void testProcess() {
         SampleBatchlet target = new SampleBatchlet();
         target.process();
 
