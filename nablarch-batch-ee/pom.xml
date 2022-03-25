@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u20</version>
+    <version>5u21</version>
   </parent>
 
   <artifactId>nablarch-batch-ee</artifactId>
-  <version>5u20</version>
+  <version>5u21</version>
 
 
   <!-- DB接続設定とビルド設定 -->
@@ -194,7 +194,14 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u20</version>
+        <version>5u21</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.8.2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -352,6 +359,19 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- JUnit5 でテスティングフレームワークを実行するために必要なライブラリ -->
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!-- JBeretのログを出力するのに使用する -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -427,6 +447,11 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+      <!-- SpotBugs -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
       </plugin>
       <!-- ================ここまで任意で使用するツールの設定================ -->
     </plugins>

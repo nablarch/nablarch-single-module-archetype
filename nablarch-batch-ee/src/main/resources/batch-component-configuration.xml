@@ -13,15 +13,17 @@
     <!-- DomainManager 実装クラス設定 -->
     <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
 
-  <!-- 環境設定 -->
-  <config-file file="env.properties"/>
-  <config-file file="common.properties"/>
+    <!-- 環境設定 -->
+    <config-file file="env.properties"/>
+    <config-file file="common.properties"/>
 
     <!-- Nablarch共通機能 -->
     <!-- 業務日付コンポーネント -->
     <import file="nablarch/core/date.xml"/>
     <!-- コード機能 -->
     <import file="nablarch/common/code.xml"/>
+    <!-- メッセージ機能の設定 -->
+    <import file="nablarch/core/message-by-property-files.xml"/>
     <!-- シーケンスを使用した自動採番設定  -->
     <import file="nablarch/common/dao.xml" />
 
@@ -66,6 +68,8 @@
                 <component-ref name="codeLoader" />
                 <!-- common/code.xml:コードのキャッシュ -->
                 <component-ref name="codeCache" />
+                <!-- common/message-by-property-files.xml:リソースのキャッシュ -->
+                <component-ref name="stringResourceCache" />
             </list>
         </property>
     </component>

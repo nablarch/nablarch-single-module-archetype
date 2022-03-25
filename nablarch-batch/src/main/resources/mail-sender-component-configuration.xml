@@ -15,6 +15,8 @@
   <!-- Nablarch共通機能 -->
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml" />
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
   <!-- 日付 -->
   <import file="nablarch/core/date.xml"/>
 
@@ -86,6 +88,8 @@
              class="nablarch.core.repository.initialization.BasicApplicationInitializer">
     <property name="initializeList">
       <list>
+        <!-- common/message-by-property-files.xml:リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
         <!-- common/date.xml:業務日付コンポーネント -->
         <component-ref name="businessDateProvider" />
         <!-- common/mail/sender/handler/residentProcessStop.xml:プロセス停止ハンドラ -->

@@ -10,6 +10,9 @@
   <!-- コード機能 -->
   <import file="nablarch/common/code.xml"/>
 
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
+
   <!-- 精査に使用する文字集合定義 -->
   <import file="nablarch/core/validation/charset-definition.xml" />
 
@@ -111,6 +114,8 @@
         <component-ref name="codeLoader" />
         <!-- コードのキャッシュ -->
         <component-ref name="codeCache" />
+        <!-- リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
       </list>
     </property>
   </component>

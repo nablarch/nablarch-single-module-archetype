@@ -12,7 +12,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>5u20</version>
+  <version>5u21</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -51,11 +51,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>4.4.1</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>4.5.0</version.plugins.gsp.dba>
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.22.2</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
-    <version.plugins.war>2.5</version.plugins.war>
+    <version.plugins.war>3.3.2</version.plugins.war>
     <version.plugins.assembly>2.5.1</version.plugins.assembly>
     <version.plugins.clean>2.5</version.plugins.clean>
     <version.plugins.deploy>2.8.2</version.plugins.deploy>
@@ -66,9 +66,12 @@
     <version.plugins.javadoc>2.10.1</version.plugins.javadoc>
     <version.plugins.resources>2.7</version.plugins.resources>
     <version.plugins.source>2.4</version.plugins.source>
-    <version.plugins.jacoco>0.8.3</version.plugins.jacoco>
+    <version.plugins.jacoco>0.8.7</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
     <version.plugins.jib>2.1.0</version.plugins.jib>
+    <version.plugins.spotbugs>4.5.0.0</version.plugins.spotbugs>
+    <version.plugins.unpublished.api.checker>1.0.0</version.plugins.unpublished.api.checker>
+    <version.plugins.findsecbugs>1.11.0</version.plugins.findsecbugs>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
@@ -104,6 +107,8 @@
     <jib.to.image>${project.artifactId}</jib.to.image>
     <!-- 生成するタグ -->
     <jib.to.tags>latest,${project.version}</jib.to.tags>
+    
+    <spotbugs.version>4.5.0</spotbugs.version>
   </properties>
 
 
@@ -376,6 +381,39 @@
                 <JAVA_OPTS>-Duser.language=ja -Duser.country=JP</JAVA_OPTS>
               </environment>
             </container>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${version.plugins.spotbugs}</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>${spotbugs.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+            <!-- チェックを除外するフィルターファイル -->
+            <excludeFilterFile>${nablarch.tools.dir}/static-analysis/spotbugs/spotbugs_exclude_for_production.xml</excludeFilterFile>
+            <!-- 使用不許可APIチェックツールの設定ファイル -->
+            <jvmArgs>-Dnablarch-findbugs-config=${nablarch.tools.dir}/static-analysis/spotbugs/published-config/production</jvmArgs>
+            <!-- ヒープサイズが足りない場合は増やすことも可能 -->
+            <maxHeap>1024</maxHeap>
+            <plugins>
+              <plugin>
+                <groupId>com.nablarch.framework</groupId>
+                <artifactId>nablarch-unpublished-api-checker</artifactId>
+                <version>${version.plugins.unpublished.api.checker}</version>
+              </plugin>
+              <plugin>
+                <groupId>com.h3xstream.findsecbugs</groupId>
+                <artifactId>findsecbugs-plugin</artifactId>
+                <version>${version.plugins.findsecbugs}</version>
+              </plugin>
+            </plugins>
           </configuration>
         </plugin>
       </plugins>
