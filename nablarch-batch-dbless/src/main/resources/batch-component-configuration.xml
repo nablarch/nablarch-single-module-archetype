@@ -18,6 +18,8 @@
   <!-- Nablarch共通機能 -->
   <!-- メッセージ機能の設定 -->
   <import file="nablarch/core/message-by-property-files.xml"/>
+  <!-- 日付（システム日時） -->
+  <import file="nablarch/core/date/system-date.xml"/>
 
   <!--
   バッチ固有の設定読み込み
