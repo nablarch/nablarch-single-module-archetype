@@ -1,16 +1,19 @@
 package com.nablarch.archetype;
 
-import nablarch.common.io.FileRecordWriterHolder;
+import nablarch.common.databind.ObjectMapper;
+import nablarch.common.databind.ObjectMapperFactory;
 import nablarch.core.log.Logger;
 import nablarch.core.log.LoggerManager;
 import nablarch.core.message.MessageUtil;
+import nablarch.core.util.FilePathSetting;
 import nablarch.fw.ExecutionContext;
 import nablarch.fw.Result;
 import nablarch.fw.Result.Success;
 import nablarch.fw.action.NoInputDataBatchAction;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 /**
  * 疎通確認用の都度起動バッチアクションクラス。
@@ -24,7 +27,7 @@ import java.util.Map;
  * 疎通確認に失敗した場合は、その時点で例外が発生する。
  * </p>
  * <p>
- * 全ての疎通確認に成功した場合、フォーマット定義（EXAMPLE.fmt）を使用して、
+ * 全ての疎通確認に成功した場合、データバインドを使用して、
  * 各機能の疎通結果がファイル出力される(test-result.csv)。
  * <p>
  * <pre>
@@ -44,14 +47,14 @@ public class SampleBatch extends NoInputDataBatchAction {
     private static final Logger LOGGER = LoggerManager.get(SampleBatch.class);
 
     /**
+     * 出力ファイルのベースパス。
+     */
+    private static final String OUTPUT_BASE_PATH_NAME = "output";
+
+    /**
      * 出力ファイル。
      */
     private static final String OUTPUT_FILE_NAME = "test-result.csv";
-
-    /**
-     * レイアウトファイル。
-     */
-    private static final String LAYOUT_FILE_NAME = "EXAMPLE";
 
     /**
      * 疎通確認用に使用するメッセージID。
@@ -66,19 +69,34 @@ public class SampleBatch extends NoInputDataBatchAction {
 
         LOGGER.logInfo("疎通確認を開始します。");
 
-        FileRecordWriterHolder.open(OUTPUT_FILE_NAME, LAYOUT_FILE_NAME);
-
-        // ディスパッチ機能の疎通確認
-        // (このメソッドが呼ばれたということはディスパッチ機能は機能している)
-        writeOkRecord("dispatch");
-
-        // メッセージ機能の疎通確認
-        checkMessageFunction();
-        writeOkRecord("message");
+        try (ObjectMapper<SampleBatchOutput> mapper = createOutputObjectMapper()) {
+            // ディスパッチ機能の疎通確認
+            // (このメソッドが呼ばれたということはディスパッチ機能は機能している)
+            mapper.write(createOkRecord("dispatch"));
+            
+            // メッセージ機能の疎通確認
+            checkMessageFunction();
+            mapper.write(createOkRecord("message"));
+        }
 
         LOGGER.logInfo("疎通確認が完了しました。");
 
         return new Success("疎通確認が完了しました。");
+    }
+
+    /**
+     * ファイルを出力するための{@link ObjectMapper}を生成します。
+     * 
+     * @return ファイルを出力するための {@code ObjectMapper}
+     */
+    private ObjectMapper<SampleBatchOutput> createOutputObjectMapper() {
+        File file = FilePathSetting.getInstance().getFile(OUTPUT_BASE_PATH_NAME, OUTPUT_FILE_NAME);
+        try {
+            return ObjectMapperFactory.create(SampleBatchOutput.class, new FileOutputStream(file));
+        } catch (FileNotFoundException e) {
+            throw new IllegalStateException(
+                    "出力ファイルの作成に失敗しました。ネストした例外メッセージを確認して下さい。", e);
+        }
     }
 
     /**
@@ -94,14 +112,14 @@ public class SampleBatch extends NoInputDataBatchAction {
     }
 
     /**
-     * レコードを書き込む。
+     * 出力用のデータオブジェクトを作成する。
      *
      * @param okFunctionName 疎通確認OKであった機能名
      */
-    private void writeOkRecord(String okFunctionName) {
-        Map<String, Object> record = new HashMap<String, Object>();
-        record.put("functionName", okFunctionName);
-        record.put("result", "OK");
-        FileRecordWriterHolder.write(record, OUTPUT_FILE_NAME);
+    private SampleBatchOutput createOkRecord(String okFunctionName) {
+        SampleBatchOutput outputData = new SampleBatchOutput();
+        outputData.setFunctionName(okFunctionName);
+        outputData.setResult("OK");
+        return outputData;
     }
 }
