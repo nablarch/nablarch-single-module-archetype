@@ -287,10 +287,6 @@
     </dependency>
     <dependency>
       <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-common-date</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-common-idgenerator-jdbc</artifactId>
     </dependency>
 
