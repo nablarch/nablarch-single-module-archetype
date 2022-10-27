@@ -25,7 +25,6 @@ import java.io.FileOutputStream;
  * </ul>
  * <p>
  * 疎通確認に失敗した場合は、その時点で例外が発生する。
- * </p>
  * <p>
  * 全ての疎通確認に成功した場合、データバインドを使用して、
  * 各機能の疎通結果がファイル出力される(test-result.csv)。
@@ -35,7 +34,6 @@ import java.io.FileOutputStream;
  * "dispatch", "OK"
  * "message","OK"
  * </pre>
- * </p>
  *
  * @deprecated TODO 疎通確認完了後、削除して下さい。
  */

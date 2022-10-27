@@ -28,7 +28,6 @@ class SampleActionTest {
      * 正常終了のテストケース。
      * <p>
      * DBからのデータ取得。
-     * </p>
      */
     @Test
     void testFind() {
@@ -53,7 +52,6 @@ class SampleActionTest {
      * 正常終了のテストケース。
      * <p>
      * DBからのデータ取得。
-     * </p>
      */
     @Test
     void testFindUsingXml() {
