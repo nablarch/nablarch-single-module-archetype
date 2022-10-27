@@ -23,6 +23,7 @@ public class SampleAction {
      * 検索処理。
      * <p>
      * 応答にJSONを使用する。
+     * </p>
      *
      * @param req HTTPリクエスト
      * @return ユーザ情報(JSON)
@@ -38,6 +39,7 @@ public class SampleAction {
      * 検索処理。
      * <p>
      * 応答にXMLを使用する。
+     * </p>
      *
      * @param req HTTPリクエスト
      * @return ユーザ情報(XML)

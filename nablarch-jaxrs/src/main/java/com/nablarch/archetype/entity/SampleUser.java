@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * <p>
  * 補足：<br>
  * 本クラスはH2 Database Engine用です。
+ * </p>
  *
  * @deprecated TODO 疎通確認用のクラスです。確認完了後、削除してください。
  */

@@ -42,8 +42,10 @@ public class SampleResiBatch extends BatchAction<Map<String, Object>> {
 
     /**
      * {@inheritDoc}
-     * 正常終了時に呼び出される。
-     * 処理したレコードの処理ステータスを、正常終了に更新する。
+     * <p>
+     * 正常終了時に呼び出される。<br>
+     * 処理したレコードの処理ステータスを、正常終了に更新する。<br>
+     * </p>
      */
     @Override
     protected void transactionSuccess(Map<String, Object> inputData,
@@ -57,8 +59,10 @@ public class SampleResiBatch extends BatchAction<Map<String, Object>> {
 
     /**
      * {@inheritDoc}
-     * 異常終了時に呼び出される。
-     * 処理したレコードの処理ステータスを、異常終了に更新する。
+     * <p>
+     * 異常終了時に呼び出される。<br>
+     * 処理したレコードの処理ステータスを、異常終了に更新する。<br>
+     * </p>
      */
     @Override
     protected void transactionFailure(Map<String, Object> inputData,
