@@ -30,6 +30,7 @@ import java.io.FileOutputStream;
  * <p>
  * 全ての疎通確認に成功した場合、データバインドを使用して、
  * 各機能の疎通結果がファイル出力される(test-result.csv)。
+ * </p>
  * <pre>
  * 【出力例】
  * "dispatch", "OK"
