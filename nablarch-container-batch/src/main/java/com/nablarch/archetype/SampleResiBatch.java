@@ -43,7 +43,7 @@ public class SampleResiBatch extends BatchAction<Map<String, Object>> {
     /**
      * {@inheritDoc}
      * <p>
-     * 正常終了時に呼び出される。
+     * 正常終了時に呼び出される。<br>
      * 処理したレコードの処理ステータスを、正常終了に更新する。
      * </p>
      */
@@ -60,7 +60,7 @@ public class SampleResiBatch extends BatchAction<Map<String, Object>> {
     /**
      * {@inheritDoc}
      * <p>
-     * 異常終了時に呼び出される。
+     * 異常終了時に呼び出される。<br>
      * 処理したレコードの処理ステータスを、異常終了に更新する。
      * </p>
      */
