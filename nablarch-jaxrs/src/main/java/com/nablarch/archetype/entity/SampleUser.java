@@ -12,7 +12,7 @@ import javax.persistence.Table;
 /**
  * 疎通確認用のEntityクラス。
  * <p>
- * 補足：
+ * 補足：<br>
  * 本クラスはH2 Database Engine用です。
  * </p>
  *
