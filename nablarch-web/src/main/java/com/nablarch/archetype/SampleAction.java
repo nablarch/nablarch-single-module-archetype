@@ -22,6 +22,7 @@ import nablarch.fw.web.HttpResponse;
  * </p>
  * <p>
  * 全ての疎通確認に成功した場合、画面に疎通確認結果が表示される。
+ * </p>
  *
  * @deprecated TODO 疎通確認用のクラスです。確認完了後、削除してください。
  */

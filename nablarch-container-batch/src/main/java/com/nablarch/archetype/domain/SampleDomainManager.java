@@ -4,8 +4,9 @@ import nablarch.core.validation.ee.DomainManager;
 
 /**
  * {@link DomainManager} の実装クラス。
- * <p/>
+ * <p>
  * ドメインを定義したBeanクラスを返却する。
+ * </p>
  */
 public final class SampleDomainManager
         implements DomainManager<SampleDomainBean> {

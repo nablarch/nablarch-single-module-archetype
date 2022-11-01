@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
  * 疎通確認用の都度起動バッチアクションクラス。
  * <p>
  * 以下の機能について、疎通確認を行う。
+ * </p>
  * <ul>
  * <li>ディスパッチ機能</li>
  * <li>メッセージ機能</li>
@@ -29,13 +30,12 @@ import java.io.FileOutputStream;
  * <p>
  * 全ての疎通確認に成功した場合、データバインドを使用して、
  * 各機能の疎通結果がファイル出力される(test-result.csv)。
- * <p>
+ * </p>
  * <pre>
  * 【出力例】
  * "dispatch", "OK"
  * "message","OK"
  * </pre>
- * </p>
  *
  * @deprecated TODO 疎通確認完了後、削除して下さい。
  */
