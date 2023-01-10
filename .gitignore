@@ -10,6 +10,7 @@
 /nablarch-container-web/gsp-target
 /nablarch-container-jaxrs/target
 /nablarch-container-batch/target
+/nablarch-container-batch-dbless/target
 /nablarch-container-jaxrs/gsp-target
 
 **/*.log

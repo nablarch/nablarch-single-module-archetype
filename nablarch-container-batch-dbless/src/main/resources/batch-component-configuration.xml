@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration  https://nablarch.github.io/schema/component-configuration.xsd">
+
+  <!-- 精査に使用する文字集合定義 -->
+  <import file="nablarch/core/validation/charset-definition.xml"/>
+
+  <!-- DomainManager 実装クラス設定 -->
+  <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
+
+  <!-- 環境設定ファイル -->
+  <config-file file="common.properties"/>
+  <config-file file="env.properties"/>
+
+  <!-- Nablarch共通機能 -->
+  <!-- メッセージ機能の設定 -->
+  <import file="nablarch/core/message-by-property-files.xml"/>
+  <!-- 日付（システム日時） -->
+  <import file="nablarch/core/date/system-date.xml"/>
+
+
+  <!--
+  バッチ固有の設定読み込み
+  -->
+  <!-- ファイルパス設置 -->
+  <import file="nablarch/batch/filepath-for-batch.xml" />
+  <!-- マルチスレッド実行制御機能 -->
+  <import file="nablarch/common/standalone/multi-thread-dbless.xml" />
+  <!-- ループ制御機能 -->
+  <import file="nablarch/batch/loop-dbless.xml" />
+  <!-- データリード機能 -->
+  <import file="nablarch/batch/batch-data-read.xml" />
+  <!-- スレッドコンテキスト機能 -->
+  <import file="nablarch/batch/threadcontext-for-batch.xml" />
+
+  <!-- ハンドラキュー構成 -->
+  <list name="handlerQueue">
+    <!-- ステータスコードを終了コードに変換するハンドラ -->
+    <component class="nablarch.fw.handler.StatusCodeConvertHandler" />
+
+    <!-- スレッドコンテキスト変数削除ハンドラ -->
+    <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler" />
+
+    <!-- グローバルエラーハンドラ -->
+    <component class="nablarch.fw.handler.GlobalErrorHandler" />
+
+    <!-- スレッドコンテキスト設定ハンドラ -->
+    <component-ref name="threadContextHandler" />
+
+    <!-- ディスパッチ -->
+    <component class="nablarch.fw.handler.RequestPathJavaPackageMapping">
+      <property name="basePackage" value="${nablarch.commonProperty.basePackage}" />
+      <property name="immediate" value="false" />
+    </component>
+
+    <!-- マルチスレッド実行制御ハンドラ -->
+    <component-ref name="multiThreadExecutionHandler" />
+
+    <!-- ループ制御ハンドラ -->
+    <component-ref name="loopHandler" />
+
+    <!-- データリードハンドラ -->
+    <component-ref name="dataReadHandler" />
+  </list>
+
+  <!-- 初期化が必要なコンポーネント -->
+  <component name="initializer"
+             class="nablarch.core.repository.initialization.BasicApplicationInitializer">
+    <property name="initializeList">
+      <list>
+        <!-- common/message-by-property-files.xml:リソースのキャッシュ -->
+        <component-ref name="stringResourceCache" />
+      </list>
+    </property>
+  </component>
+</component-configuration>

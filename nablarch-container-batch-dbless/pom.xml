@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.nablarch.archetype</groupId>
+    <artifactId>nablarch-archetype-parent</artifactId>
+    <version>5-NEXT-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>nablarch-container-batch-dbless</artifactId>
+  <version>5-NEXT-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
+    <java.version>11</java.version>
+
+    <!--
+     JIBでDockerコンテナを作るときのベースイメージを指定する。
+     ブランクプロジェクトではイメージをタグで指定しているが、この場合、指定したイメージの最新バージョンが選択される。
+     検証時と異なるバージョンが選択された場合、アプリケーションの動作に影響が出る可能性があるので、
+     プロジェクトにおける検証が完了した段階で、バージョンを固定するために、イメージをダイジェストで指定することを推奨する。
+    -->
+    <jib.from.image>adoptopenjdk:11.0.11_9-jre-hotspot</jib.from.image>
+
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.nablarch.profile</groupId>
+        <artifactId>nablarch-bom</artifactId>
+        <version>5-NEXT-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.8.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.nablarch.profile</groupId>
+      <artifactId>nablarch-batch</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.nablarch.configuration</groupId>
+      <artifactId>nablarch-main-default-configuration</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nablarch.configuration</groupId>
+      <artifactId>nablarch-testing-default-configuration</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit5 でテスティングフレームワークを実行するために必要なライブラリ(ここから) -->
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-testing-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- JUnit5 でテスティングフレームワークを実行するために必要なライブラリ(ここまで) -->
+
+    <dependency>
+      <groupId>com.nablarch.integration</groupId>
+      <artifactId>slf4j-nablarch-adaptor</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-fw-web-extension</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-fw-messaging</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-fw-messaging-http</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Java 11 対応 -->
+    <dependency>
+      <groupId>com.sun.activation</groupId>
+      <artifactId>javax.activation</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.nablarch.framework</groupId>
+      <artifactId>nablarch-core-validation-ee</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>5.3.6.Final</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.sql</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>nablarch.fw.launcher.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <!-- Dockerコンテナ化 -->
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <configuration>
+          <container>
+            <mainClass>nablarch.fw.launcher.Main</mainClass>
+            <!--TODO: JIBでDockerコンテナを作るときのデフォルトのOS環境変数値はPJ要件に合わせて修正してください。 -->
+            <environment>
+              <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_INPUT>file:/var/nablarch/input</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_INPUT>
+              <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>file:/var/nablarch/output</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_OUTPUT>
+              <NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_FORMAT>file:/var/nablarch/format</NABLARCH_FILEPATHSETTING_BASEPATHSETTINGS_FORMAT>
+            </environment>
+          </container>
+        </configuration>
+      </plugin>
+      <!-- ================ここから任意で使用するツールの設定================ -->
+      <!-- カバレッジ取得 -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+      <!-- SpotBugs -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+      </plugin>
+      <!-- ================ここまで任意で使用するツールの設定================ -->
+    </plugins>
+  </build>
+</project>
