@@ -4,12 +4,14 @@
 /nablarch-batch/gsp-target
 /nablarch-batch-ee/target
 /nablarch-batch-ee/gsp-target
+/nablarch-batch-dbless/target
 /nablarch-jaxrs/target
 /nablarch-jaxrs/gsp-target
 /nablarch-container-web/target
 /nablarch-container-web/gsp-target
 /nablarch-container-jaxrs/target
 /nablarch-container-batch/target
+/nablarch-container-batch-dbless/target
 /nablarch-container-jaxrs/gsp-target
 
 **/*.log

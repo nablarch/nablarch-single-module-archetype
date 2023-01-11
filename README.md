@@ -10,16 +10,18 @@ nablarch-single-module-archetype
 
 # 存在するモジュール
 
-| モジュール              | 説明                                                  |
-|:------------------------|:------------------------------------------------------|
-|nablarch-archetype-parent|各アーキタイプの共通的な設定を記述したpom.xml          |
-|nablarch-web             |ウェブアプリケーション用アーキタイプ。                 |
-|nablarch-jaxrs           |RESTfulウェブサービス用アーキタイプ。                  |
-|nablarch-batch           |Nablarchバッチアプリケーション用アーキタイプ。         |
-|nablarch-batch-ee        |JSR352に準拠したバッチアプリケーション用アーキタイプ。 |
-|nablarch-container-web   |ウェブアプリケーションのDockerコンテナ用アーキタイプ。 |
-|nablarch-container-jaxrs |RESTfulウェブサービスのDockerコンテナ用アーキタイプ。 |
-|nablarch-container-batch |NablarchバッチアプリケーションのDockerコンテナ用アーキタイプ。 |
+| モジュール                           | 説明                                             |
+|:--------------------------------|:-----------------------------------------------|
+| nablarch-archetype-parent       | 各アーキタイプの共通的な設定を記述したpom.xml                     |
+| nablarch-web                    | ウェブアプリケーション用アーキタイプ。                            |
+| nablarch-jaxrs                  | RESTfulウェブサービス用アーキタイプ。                         |
+| nablarch-batch                  | Nablarchバッチアプリケーション用アーキタイプ。                    |
+| nablarch-batch-ee               | JSR352に準拠したバッチアプリケーション用アーキタイプ。                 |
+| nablarch-batch-dbelss           | Nablarchバッチ（DB接続無し）アプリケーション用アーキタイプ。            |
+| nablarch-container-web          | ウェブアプリケーションのDockerコンテナ用アーキタイプ。                 |
+| nablarch-container-jaxrs        | RESTfulウェブサービスのDockerコンテナ用アーキタイプ。              |
+| nablarch-container-batch        | NablarchバッチアプリケーションのDockerコンテナ用アーキタイプ。         |
+| nablarch-container-batch-dbless | Nablarchバッチ（DB接続無し）アプリケーションのDockerコンテナ用アーキタイプ。 |
 
 
 # ビルド方法
@@ -93,6 +95,21 @@ cd nablarch-batch-ee/target/generated-sources/archetype/
 mvn install
 ```
 
+## nablarch-batch-dbless
+
+```
+# nablarch-batch-dblessプロジェクトをベースにアーキタイプを生成
+pushd nablarch-batch-dbless
+mvn clean archetype:create-from-project
+popd
+
+# 独自のカスタマイズを加える
+./pre-create-maven-archetype-batch-dbless.sh
+
+cd nablarch-batch-dbless/target/generated-sources/archetype/
+mvn install
+```
+
 ## nablarch-container-web
 
 ```
@@ -138,6 +155,21 @@ cd nablarch-container-batch/target/generated-sources/archetype/
 mvn install
 ```
 
+## nablarch-container-batch-dbless
+
+```
+# nablarch-container-batch-dblessプロジェクトをベースにアーキタイプを生成
+pushd nablarch-container-batch-dbless
+mvn clean archetype:create-from-project
+popd
+
+# 独自のカスタマイズを加える
+./pre-create-maven-archetype-container-batch-dbless.sh
+
+cd nablarch-container-batch-dbless/target/generated-sources/archetype/
+mvn install
+```
+
 # ビルドしたアーキタイプからプロジェクトを生成する方法
 
 ## nablarch-archetype-parent
@@ -176,6 +208,13 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGrou
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
+## nablarch-batch-dbless
+
+```
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-dbless-archetype -DarchetypeVersion=xxx
+```
+(xxxの箇所は、適切なバージョンを指定してください)
+
 ## nablarch-container-web
 
 ```
@@ -194,5 +233,12 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGrou
 
 ```
 mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-archetype -DarchetypeVersion=xxx
+```
+(xxxの箇所は、適切なバージョンを指定してください)
+
+## nablarch-container-batch-dbless
+
+```
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-dbless-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)

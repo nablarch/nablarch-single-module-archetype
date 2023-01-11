@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # archetypeのOSSRHにデプロイで必要となるbuild処理を定義した親pomをコピーする。
 cp ./archetype-build-parent.xml ./nablarch-batch-dbless/target/generated-sources/archetype/
