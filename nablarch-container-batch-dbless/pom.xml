@@ -87,11 +87,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <dependency>
-      <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-fw-web-extension</artifactId>
-      <scope>test</scope>
-    </dependency>
+    <!-- Nablarchのテスティングフレームワークを実行するために必要なライブラリ -->
     <dependency>
       <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-fw-messaging</artifactId>
