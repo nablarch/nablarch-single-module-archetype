@@ -15,7 +15,7 @@
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
-    <java.version>11</java.version>
+    <java.version>17</java.version>
 
     <!-- gsp-dba-maven-pluginが使用するデータベース設定 -->
     <nablarch.db.jdbcDriver>org.h2.Driver</nablarch.db.jdbcDriver>
@@ -31,7 +31,7 @@
      検証時と異なるバージョンが選択された場合、アプリケーションの動作に影響が出る可能性があるので、
      プロジェクトにおける検証が完了した段階で、バージョンを固定するために、イメージをダイジェストで指定することを推奨する。
     -->
-    <jib.from.image>tomcat:9.0.36-jdk11-adoptopenjdk-hotspot</jib.from.image>
+    <jib.from.image>tomcat:10.1.5-jdk17-temurin</jib.from.image>
   </properties>
 
   <!--
@@ -76,32 +76,6 @@
                 <artifactId>h2</artifactId>
                 <version>2.1.214</version>
                 <scope>runtime</scope>
-              </dependency>
-              <!-- Java11 対応 -->
-              <dependency>
-                <groupId>javax.activation</groupId>
-                <artifactId>javax.activation-api</artifactId>
-                <version>1.2.0</version>
-              </dependency>
-              <dependency>
-                <groupId>javax.xml.bind</groupId>
-                <artifactId>jaxb-api</artifactId>
-                <version>2.3.0</version>
-              </dependency>
-              <dependency>
-                <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-core</artifactId>
-                <version>2.3.0</version>
-              </dependency>
-              <dependency>
-                <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-impl</artifactId>
-                <version>2.3.0</version>
-              </dependency>
-              <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>1.3.2</version>
               </dependency>
             </dependencies>
           </plugin>
@@ -208,6 +182,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-bom</artifactId>
+        <version>10.0.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -226,12 +207,7 @@
 
     <dependency>
       <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-testing-jetty9</artifactId>
-      <!--
-        最終的には jetty11 に対応したアーティファクトに切り替えてバージョンは bom で管理する。
-        ここでバージョンを明記しているのは CI を通すための一次的な処置。
-       -->
-      <version>5-NEXT-SNAPSHOT</version>
+      <artifactId>nablarch-testing-jetty12</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -307,9 +283,13 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1.1</version>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
     </dependency>
 
     <dependency>
@@ -320,9 +300,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.hibernate</groupId>
+      <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>5.3.6.Final</version>
+      <version>8.0.0.Final</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -360,33 +340,6 @@
       <groupId>com.nablarch.framework</groupId>
       <artifactId>nablarch-fw-messaging-http</artifactId>
       <scope>test</scope>
-    </dependency>
-
-    <!-- Java 11 対応 -->
-    <dependency>
-      <groupId>com.sun.activation</groupId>
-      <artifactId>javax.activation</artifactId>
-      <version>1.2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.xml.bind</groupId>
-      <artifactId>jaxb-api</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-core</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-      <version>2.3.0</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>1.3.2</version>
     </dependency>
 
     <!-- ================ここから任意で使用するアサートライブラリの設定================ -->
@@ -444,18 +397,13 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>net.unit8.waitt</groupId>
-        <artifactId>waitt-maven-plugin</artifactId>
-        <version>1.2.3</version>
+        <groupId>org.eclipse.jetty.ee10</groupId>
+        <artifactId>jetty-ee10-maven-plugin</artifactId>
+        <version>12.0.0.alpha3</version>
         <configuration>
-          <port>9080</port>
-          <servers>
-            <server>
-              <groupId>net.unit8.waitt.server</groupId>
-              <artifactId>waitt-tomcat8</artifactId>
-              <version>1.2.3</version>
-            </server>
-          </servers>
+          <httpConnector>
+            <port>9080</port>
+          </httpConnector>
         </configuration>
       </plugin>
       <plugin>
