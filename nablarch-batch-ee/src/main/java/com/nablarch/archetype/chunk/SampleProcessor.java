@@ -3,9 +3,9 @@ package com.nablarch.archetype.chunk;
 import com.nablarch.archetype.entity.SampleUser;
 import com.nablarch.archetype.form.SampleUserForm;
 
-import javax.batch.api.chunk.ItemProcessor;
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
+import jakarta.batch.api.chunk.ItemProcessor;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Named;
 
 /**
  * 疎通確認用ItemProcessor実装クラス。
