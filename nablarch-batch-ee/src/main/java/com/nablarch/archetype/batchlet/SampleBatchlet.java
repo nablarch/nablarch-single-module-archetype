@@ -6,9 +6,9 @@ import nablarch.common.dao.UniversalDao;
 import nablarch.core.log.Logger;
 import nablarch.core.log.LoggerManager;
 
-import javax.batch.api.AbstractBatchlet;
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
+import jakarta.batch.api.AbstractBatchlet;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Named;
 
 /**
  * 疎通確認用バッチレット。

@@ -14,7 +14,7 @@
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
 
     <!-- 環境ごとのリソースディレクトリ(プロファイルにより切り替わる) -->
     <env.resources>${project.basedir}/src/env/${env.dir}/resources</env.resources>
@@ -203,6 +203,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-bom</artifactId>
+        <version>10.0.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -255,6 +262,11 @@
       <artifactId>nablarch-common-idgenerator-jdbc</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+    </dependency>
+
     <!-- TODO: プロジェクトで使用するDB製品にあわせたJDBCドライバに修正してください。 -->
     <dependency>
       <groupId>com.h2database</groupId>
@@ -298,9 +310,8 @@
 
     <!-- メール送信 -->
     <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>mail</artifactId>
-      <version>1.4.3</version>
+      <groupId>jakarta.mail</groupId>
+      <artifactId>jakarta.mail-api</artifactId>
     </dependency>
 
     <dependency>
@@ -309,9 +320,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.hibernate</groupId>
+      <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>5.3.6.Final</version>
+      <version>8.0.0.Final</version>
     </dependency>
   </dependencies>
 

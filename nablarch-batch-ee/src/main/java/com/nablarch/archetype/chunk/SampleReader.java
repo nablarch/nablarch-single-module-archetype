@@ -5,9 +5,9 @@ import com.nablarch.archetype.entity.SampleUser;
 import java.io.Serializable;
 import java.util.Iterator;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import nablarch.common.dao.DeferredEntityList;
 import nablarch.common.dao.UniversalDao;
