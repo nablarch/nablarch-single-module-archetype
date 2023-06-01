@@ -1,4 +1,4 @@
 <routes>
     <root to="Sample#index"/>
-    <match path="/action/:controller/:action"/>
+    <get path="/action/sample/index" to="Sample#index"/>
 </routes>
