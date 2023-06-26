@@ -46,7 +46,7 @@
   <!-- データリード機能 -->
   <import file="nablarch/batch/batch-data-read.xml" />
   <!-- メール送信機能 -->
-  <import file="nablarch/batch/mail/mail-sender.xml" />
+  <import file="nablarch/batch/mail/mail-sender-with-transaction.xml" />
 
   <!-- ハンドラキュー構成 -->
   <list name="handlerQueue">
