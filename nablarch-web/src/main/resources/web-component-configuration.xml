@@ -101,6 +101,9 @@
   <!-- TODO:使用するDBに合わせてダイアレクトを設定すること -->
   <component name="dialect" class="nablarch.core.db.dialect.H2Dialect" />
 
+  <!-- CSRF対策 -->
+  <component name="csrfTokenVerificationHandler"
+             class="nablarch.fw.web.handler.CsrfTokenVerificationHandler" />
 
   <!-- ハンドラキュー構成 -->
   <component name="webFrontController"
@@ -133,6 +136,8 @@
         <component-ref name="httpErrorHandler" />
 
         <component-ref name="nablarchTagHandler"/>
+
+        <component-ref name="csrfTokenVerificationHandler" />
 
         <component-ref name="dbConnectionManagementHandler"/>
 
