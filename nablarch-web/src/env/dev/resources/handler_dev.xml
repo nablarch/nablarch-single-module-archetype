@@ -46,6 +46,8 @@
 
         <component-ref name="nablarchTagHandler"/>
 
+        <component-ref name="csrfTokenVerificationHandler" />
+
         <component-ref name="dbConnectionManagementHandler"/>
 
         <component-ref name="transactionManagementHandler"/>
