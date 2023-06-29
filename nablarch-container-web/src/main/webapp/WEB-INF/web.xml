@@ -53,27 +53,27 @@
 
   <error-page>
     <error-code>400</error-code>
-    <location>/errorPages/USER_ERROR.jsp</location>
+    <location>/WEB-INF/errorPages/USER_ERROR.jsp</location>
   </error-page>
   <error-page>
     <error-code>403</error-code>
-    <location>/errorPages/PERMISSION-ERROR.jsp</location>
+    <location>/WEB-INF/errorPages/PERMISSION-ERROR.jsp</location>
   </error-page>
   <error-page>
     <error-code>404</error-code>
-    <location>/errorPages/PAGE_NOT_FOUND_ERROR.jsp</location>
+    <location>/WEB-INF/errorPages/PAGE_NOT_FOUND_ERROR.jsp</location>
   </error-page>
   <error-page>
     <error-code>413</error-code>
-    <location>/errorPages/REQUEST_ENTITY_TOO_LARGE.jsp</location>
+    <location>/WEB-INF/errorPages/REQUEST_ENTITY_TOO_LARGE.jsp</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/errorPages/ERROR.jsp</location>
+    <location>/WEB-INF/errorPages/ERROR.jsp</location>
   </error-page>
   <error-page>
     <error-code>503</error-code>
-    <location>/errorPages/SERVICE-UNAVAILABLE-ERROR.jsp</location>
+    <location>/WEB-INF/errorPages/SERVICE-UNAVAILABLE-ERROR.jsp</location>
   </error-page>
 
   <!-- tldを指定する場合はコメントアウト
