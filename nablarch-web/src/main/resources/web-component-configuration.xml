@@ -87,12 +87,12 @@
     <property name="defaultPages">
       <map>
         <!-- TODO: 適切なエラー画面作成して設定してください。設定の際は、あわせてweb.xmlも修正してください -->
-        <entry key="4.." value="/errorPages/USER_ERROR.jsp" />
-        <entry key="403" value="/errorPages/PERMISSION-ERROR.jsp" />
-        <entry key="404" value="/errorPages/PAGE_NOT_FOUND_ERROR.jsp" />
-        <entry key="413" value="/errorPages/REQUEST_ENTITY_TOO_LARGE.jsp" />
-        <entry key="5.." value="/errorPages/ERROR.jsp" />
-        <entry key="503" value="/errorPages/SERVICE-UNAVAILABLE-ERROR.jsp" />
+        <entry key="4.." value="/WEB-INF/errorPages/USER_ERROR.jsp" />
+        <entry key="403" value="/WEB-INF/errorPages/PERMISSION-ERROR.jsp" />
+        <entry key="404" value="/WEB-INF/errorPages/PAGE_NOT_FOUND_ERROR.jsp" />
+        <entry key="413" value="/WEB-INF/errorPages/REQUEST_ENTITY_TOO_LARGE.jsp" />
+        <entry key="5.." value="/WEB-INF/errorPages/ERROR.jsp" />
+        <entry key="503" value="/WEB-INF/errorPages/SERVICE-UNAVAILABLE-ERROR.jsp" />
       </map>
     </property>
   </component>
@@ -101,6 +101,9 @@
   <!-- TODO:使用するDBに合わせてダイアレクトを設定すること -->
   <component name="dialect" class="nablarch.core.db.dialect.H2Dialect" />
 
+  <!-- CSRF対策 -->
+  <component name="csrfTokenVerificationHandler"
+             class="nablarch.fw.web.handler.CsrfTokenVerificationHandler" />
 
   <!-- ハンドラキュー構成 -->
   <component name="webFrontController"
@@ -133,6 +136,8 @@
         <component-ref name="httpErrorHandler" />
 
         <component-ref name="nablarchTagHandler"/>
+
+        <component-ref name="csrfTokenVerificationHandler" />
 
         <component-ref name="dbConnectionManagementHandler"/>
 

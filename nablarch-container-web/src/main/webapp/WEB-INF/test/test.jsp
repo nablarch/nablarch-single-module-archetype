@@ -58,7 +58,7 @@ TODO 疎通確認用のクラスです。確認完了後、ディレクトリご
 画像が表示されていれば成功です。
 </p>
 
-<n:img src="/test/nablarch-logo.jpg" alt="logo"/>
+<n:img src="/images/nablarch-logo.jpg" alt="logo"/>
 
 <hr/>
 確認完了後は、疎通確認用のリソースを削除してください。
