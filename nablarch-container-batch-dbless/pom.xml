@@ -5,11 +5,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u22</version>
+    <version>5u23</version>
   </parent>
 
   <artifactId>nablarch-container-batch-dbless</artifactId>
-  <version>5u22</version>
+  <version>5u23</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -31,7 +31,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u22</version>
+        <version>5u23</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

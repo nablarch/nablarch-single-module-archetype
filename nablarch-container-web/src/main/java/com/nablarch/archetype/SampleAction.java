@@ -40,7 +40,7 @@ public class SampleAction {
         context.setRequestScopedVar("number", number);
         SessionUtil.put(context, "number", number + 1);
 
-        return new HttpResponse("/test/test.jsp");
+        return new HttpResponse("/WEB-INF/test/test.jsp");
     }
 
 
