@@ -25,7 +25,7 @@ sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.proper
 # 想定箇所以外が${version}に置換されている可能性があるため、pom.xml以外の置換は元に戻す
 # `archetype_version` にはnablarch-archetype-parentのバージョンが入っているが、アーキタイプのバージョンと一致しているため問題ない。
 archetype_version=`grep -m 1 "<version>" pom.xml | awk -F '[><]' '{print $3}'`
-grep -rl '${version}' --exclude=pom.xml | xargs --no-run-if-empty sed -i -e "s/\${version}/${archetype_version}/g"
+find . ! -name pom.xml -type f | xargs grep -l '${version}' | xargs --no-run-if-empty sed -i -e "s/\${version}/${archetype_version}/g"
 popd
 
 # このあと、nablarch-batch-dbless/target/generated-sources/archetypeで「mvn install」を実行するとアーキタイプをインストールできる。
