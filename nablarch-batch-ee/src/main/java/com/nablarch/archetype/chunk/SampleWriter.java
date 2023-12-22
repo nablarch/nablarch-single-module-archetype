@@ -4,9 +4,9 @@ import com.nablarch.archetype.form.SampleUserForm;
 import nablarch.common.databind.ObjectMapper;
 import nablarch.common.databind.ObjectMapperFactory;
 
-import javax.batch.api.chunk.AbstractItemWriter;
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
+import jakarta.batch.api.chunk.AbstractItemWriter;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Named;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.Serializable;

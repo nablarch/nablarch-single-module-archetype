@@ -22,6 +22,10 @@ sed -i -e "s/com\/nablarch\/archetype/\${packageInPathFormat}/g" pom.xml
 sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactId>nablarch-container-web<\/artifactId>/g" pom.xml
 # configファイル中のパッケージを置換文字列にする。
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
+# 想定箇所以外が${version}に置換されている可能性があるため、pom.xml以外の置換は元に戻す
+# `archetype_version` にはnablarch-archetype-parentのバージョンが入っているが、アーキタイプのバージョンと一致しているため問題ない。
+archetype_version=`grep -m 1 "<version>" pom.xml | awk -F '[><]' '{print $3}'`
+find . ! -name pom.xml -type f | xargs grep -l '${version}' | xargs --no-run-if-empty sed -i -e "s/\${version}/${archetype_version}/g"
 popd
 
 # このあと、nablarch-container-web/target/generated-sources/archetypeで「mvn install」を実行するとアーキタイプをインストールできる。

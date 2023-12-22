@@ -12,7 +12,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>5u23</version>
+  <version>6</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -44,14 +44,14 @@
   </scm>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>4.6.0</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>5.0.0</version.plugins.gsp.dba>
     <version.plugins.compiler>3.2</version.plugins.compiler>
     <version.plugins.surefire>2.22.2</version.plugins.surefire>
     <version.plugins.antrun>1.7</version.plugins.antrun>
@@ -68,7 +68,7 @@
     <version.plugins.source>2.4</version.plugins.source>
     <version.plugins.jacoco>0.8.7</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
-    <version.plugins.jib>2.1.0</version.plugins.jib>
+    <version.plugins.jib>3.3.1</version.plugins.jib>
     <version.plugins.spotbugs>4.5.0.0</version.plugins.spotbugs>
     <version.plugins.unpublished.api.checker>1.0.0</version.plugins.unpublished.api.checker>
     <version.plugins.findsecbugs>1.11.0</version.plugins.findsecbugs>

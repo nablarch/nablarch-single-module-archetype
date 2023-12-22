@@ -5,16 +5,16 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u23</version>
+    <version>6</version>
   </parent>
 
   <artifactId>nablarch-web</artifactId>
-  <version>5u23</version>
+  <version>6</version>
   <packaging>war</packaging>
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
 
     <!-- 環境ごとのリソースディレクトリ(プロファイルにより切り替わる) -->
     <env.resources>${project.basedir}/src/env/${env.dir}/resources</env.resources>
@@ -222,7 +222,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u23</version>
+        <version>6</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -230,6 +230,13 @@
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
         <version>5.8.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-bom</artifactId>
+        <version>10.0.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -265,7 +272,7 @@
 
     <dependency>
       <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-testing-jetty6</artifactId>
+      <artifactId>nablarch-testing-jetty12</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -301,27 +308,31 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>javax.servlet.jsp-api</artifactId>
-      <version>2.3.1</version>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp.jstl</groupId>
-      <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-      <version>1.2.1</version>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.hibernate</groupId>
+      <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>5.3.6.Final</version>
+      <version>8.0.0.Final</version>
     </dependency>
 
     <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>3.0.0</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -381,18 +392,13 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>net.unit8.waitt</groupId>
-        <artifactId>waitt-maven-plugin</artifactId>
-        <version>1.2.3</version>
+        <groupId>org.eclipse.jetty.ee10</groupId>
+        <artifactId>jetty-ee10-maven-plugin</artifactId>
+        <version>12.0.3</version>
         <configuration>
-          <port>9080</port>
-          <servers>
-            <server>
-              <groupId>net.unit8.waitt.server</groupId>
-              <artifactId>waitt-tomcat8</artifactId>
-              <version>1.2.3</version>
-            </server>
-          </servers>
+          <httpConnector>
+            <port>9080</port>
+          </httpConnector>
         </configuration>
       </plugin>
       <plugin>
