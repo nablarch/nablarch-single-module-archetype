@@ -66,7 +66,7 @@
     <version.plugins.javadoc>3.4.1</version.plugins.javadoc>
     <version.plugins.resources>2.7</version.plugins.resources>
     <version.plugins.source>2.4</version.plugins.source>
-    <version.plugins.jacoco>0.8.7</version.plugins.jacoco>
+    <version.plugins.jacoco>0.8.11</version.plugins.jacoco>
     <version.plugins.build-helper-maven>1.9.1</version.plugins.build-helper-maven>
     <version.plugins.jib>3.3.1</version.plugins.jib>
     <version.plugins.spotbugs>4.5.0.0</version.plugins.spotbugs>
