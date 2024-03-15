@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>6</version>
+    <version>6u1</version>
   </parent>
 
   <artifactId>nablarch-batch-ee</artifactId>
-  <version>6</version>
+  <version>6u1</version>
 
 
   <!-- DB接続設定とビルド設定 -->
@@ -197,7 +197,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>6</version>
+        <version>6u1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -377,7 +377,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.4</version>
+      <version>1.2.13</version>
     </dependency>
     <!-- logbackより後ろに無いと実行時にエラーになる -->
     <dependency>
