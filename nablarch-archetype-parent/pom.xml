@@ -72,6 +72,7 @@
     <version.plugins.spotbugs>4.8.3.0</version.plugins.spotbugs>
     <version.plugins.unpublished.api.checker>5-NEXT-SNAPSHOT</version.plugins.unpublished.api.checker>
     <version.plugins.findsecbugs>1.11.0</version.plugins.findsecbugs>
+    <version.nablarch.toolbox>6-NEXT-SNAPSHOT</version.nablarch.toolbox>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
@@ -255,7 +256,7 @@
             <dependency>
               <groupId>com.nablarch.tool</groupId>
               <artifactId>nablarch-toolbox</artifactId>
-              <version>1.0.2</version>
+              <version>${version.nablarch.toolbox}</version>
               <exclusions>
                 <exclusion>
                   <groupId>ant</groupId>
