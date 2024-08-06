@@ -71,7 +71,7 @@
     <version.plugins.jib>3.3.1</version.plugins.jib>
     <version.plugins.spotbugs>4.8.6.2</version.plugins.spotbugs>
     <spotbugs.version>4.8.6</spotbugs.version>
-    <version.plugins.unpublished.api.checker>5-NEXT-SNAPSHOT</version.plugins.unpublished.api.checker>
+    <version.plugins.unpublished.api.checker>1.0.0</version.plugins.unpublished.api.checker>
     <version.plugins.findsecbugs>1.13.0</version.plugins.findsecbugs>
     <version.nablarch.toolbox>6-NEXT-SNAPSHOT</version.nablarch.toolbox>
 
