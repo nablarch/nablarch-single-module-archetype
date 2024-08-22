@@ -372,21 +372,6 @@
           <webXml>${webxml.path}</webXml>
         </configuration>
       </plugin>
-      <!--
-      NablarchのテスティングフレームワークがJSPのコンパイル結果を格納するディレクトリを、
-      mvn clean時に削除するように設定。
-      -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>work/jsp</directory>
-            </fileset>
-          </filesets>
-        </configuration>
-      </plugin>
       <!-- Dockerコンテナ化 -->
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
