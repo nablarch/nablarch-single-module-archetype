@@ -363,6 +363,10 @@
           <httpConnector>
             <port>9080</port>
           </httpConnector>
+          <webApp>
+            <!-- Jettyに含まれるJSTLと重複するので、Webアプリに含まれるJSTLはJettyで起動する際には除外する -->
+            <webInfIncludeJarPattern><![CDATA[.*/[^/]+(?<!jakarta\.servlet\.jsp\.jstl-[^/]+)\.jar$]]></webInfIncludeJarPattern>
+          </webApp>
         </configuration>
       </plugin>
       <plugin>
