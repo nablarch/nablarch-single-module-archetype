@@ -5,6 +5,31 @@
   <artifactId>archetype-build-parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>nablarch</id>
+      <name>Nablarch</name>
+      <email>nablarch@tis.co.jp</email>
+      <organization>Nablarch</organization>
+      <organizationUrl>https://github.com/nablarch</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/nablarch/nablarch/nablarch-single-module-archetype.git</connection>
+    <developerConnection>scm:git:ssh://github.com/nablarch/nablarch/nablarch-single-module-archetype.git</developerConnection>
+    <url>https://github.com/nablarch/nablarch-single-module-archetype/tree/master</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <build>
     <plugins>
       <plugin>
