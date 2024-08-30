@@ -31,8 +31,11 @@
     <version.plugins.compiler>3.13.0</version.plugins.compiler>
     <version.plugins.surefire>3.5.0</version.plugins.surefire>
     <version.plugins.antrun>3.1.0</version.plugins.antrun>
+    <version.plugins.jetty>12.0.12</version.plugins.jetty>
     <version.plugins.war>3.4.0</version.plugins.war>
     <version.plugins.assembly>3.7.1</version.plugins.assembly>
+    <version.plugins.deploy>3.1.3</version.plugins.deploy>
+    <version.plugins.install>3.1.3</version.plugins.install>
     <version.plugins.jar>3.4.2</version.plugins.jar>
     <version.plugins.javadoc>3.10.0</version.plugins.javadoc>
     <version.plugins.resources>3.3.1</version.plugins.resources>
@@ -253,9 +256,24 @@
           <version>${version.plugins.war}</version>
         </plugin>
         <plugin>
+          <groupId>org.eclipse.jetty.ee10</groupId>
+          <artifactId>jetty-ee10-maven-plugin</artifactId>
+          <version>${version.plugins.jetty}</version>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${version.plugins.assembly}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.plugins.install}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.plugins.deploy}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
