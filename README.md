@@ -40,7 +40,7 @@ mvn install
 ```
 # nablarch-webプロジェクトをベースにアーキタイプを生成
 pushd nablarch-web
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -55,7 +55,7 @@ mvn install
 ```
 # nablarch-jaxrsプロジェクトをベースにアーキタイプを生成
 pushd nablarch-jaxrs
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -70,7 +70,7 @@ mvn install
 ```
 # nablarch-batchプロジェクトをベースにアーキタイプを生成
 pushd nablarch-batch
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -85,7 +85,7 @@ mvn install
 ```
 # nablarch-batch-eeプロジェクトをベースにアーキタイプを生成
 pushd nablarch-batch-ee
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -100,7 +100,7 @@ mvn install
 ```
 # nablarch-batch-dblessプロジェクトをベースにアーキタイプを生成
 pushd nablarch-batch-dbless
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -115,7 +115,7 @@ mvn install
 ```
 # nablarch-container-webプロジェクトをベースにアーキタイプを生成
 pushd nablarch-container-web
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -130,7 +130,7 @@ mvn install
 ```
 # nablarch-container-jaxrsプロジェクトをベースにアーキタイプを生成
 pushd nablarch-container-jaxrs
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -145,7 +145,7 @@ mvn install
 ```
 # nablarch-container-batchプロジェクトをベースにアーキタイプを生成
 pushd nablarch-container-batch
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える
@@ -160,7 +160,7 @@ mvn install
 ```
 # nablarch-container-batch-dblessプロジェクトをベースにアーキタイプを生成
 pushd nablarch-container-batch-dbless
-mvn clean archetype:create-from-project
+mvn clean archetype:2.4:create-from-project
 popd
 
 # 独自のカスタマイズを加える

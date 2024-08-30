@@ -30,21 +30,21 @@
     <version.plugins.gsp.dba>5.1.0-SNAPSHOT</version.plugins.gsp.dba>
     <version.plugins.compiler>3.13.0</version.plugins.compiler>
     <version.plugins.surefire>3.5.0</version.plugins.surefire>
-    <version.plugins.antrun>1.7</version.plugins.antrun>
+    <version.plugins.antrun>3.1.0</version.plugins.antrun>
     <version.plugins.war>3.4.0</version.plugins.war>
-    <version.plugins.assembly>2.5.1</version.plugins.assembly>
+    <version.plugins.assembly>3.7.1</version.plugins.assembly>
     <version.plugins.clean>2.5</version.plugins.clean>
     <version.plugins.deploy>2.8.2</version.plugins.deploy>
     <version.plugins.dependency>2.9</version.plugins.dependency>
     <version.plugins.failsafe>2.18</version.plugins.failsafe>
     <version.plugins.install>2.5.2</version.plugins.install>
-    <version.plugins.jar>2.5</version.plugins.jar>
+    <version.plugins.jar>3.4.2</version.plugins.jar>
     <version.plugins.javadoc>3.4.1</version.plugins.javadoc>
-    <version.plugins.resources>2.7</version.plugins.resources>
+    <version.plugins.resources>3.3.1</version.plugins.resources>
     <version.plugins.source>2.4</version.plugins.source>
-    <version.plugins.jacoco>0.8.11</version.plugins.jacoco>
+    <version.plugins.jacoco>0.8.12</version.plugins.jacoco>
     <version.plugins.build-helper-maven>3.6.0</version.plugins.build-helper-maven>
-    <version.plugins.jib>3.3.1</version.plugins.jib>
+    <version.plugins.jib>3.4.3</version.plugins.jib>
     <version.plugins.spotbugs>4.8.6.2</version.plugins.spotbugs>
     <spotbugs.version>4.8.6</spotbugs.version>
     <version.plugins.release>3.1.1</version.plugins.release>

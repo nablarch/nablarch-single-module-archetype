@@ -37,7 +37,7 @@
      検証時と異なるバージョンが選択された場合、アプリケーションの動作に影響が出る可能性があるので、
      プロジェクトにおける検証が完了した段階で、バージョンを固定するために、イメージをダイジェストで指定することを推奨する。
     -->
-    <jib.from.image>tomcat:10.1.5-jdk17-temurin</jib.from.image>
+    <jib.from.image>tomcat:10.1.28-jdk17-temurin</jib.from.image>
   </properties>
 
   <!--
@@ -358,7 +358,7 @@
       <plugin>
         <groupId>org.eclipse.jetty.ee10</groupId>
         <artifactId>jetty-ee10-maven-plugin</artifactId>
-        <version>12.0.3</version>
+        <version>12.0.12</version>
         <configuration>
           <httpConnector>
             <port>9080</port>
