@@ -127,7 +127,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-install-plugin</artifactId>
-            <version>${version.plugins.install}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをinstallするための設定 -->
               <execution>
@@ -148,7 +147,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
-            <version>${version.plugins.deploy}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをdeployするための設定 -->
               <execution>
@@ -358,7 +356,6 @@
       <plugin>
         <groupId>org.eclipse.jetty.ee10</groupId>
         <artifactId>jetty-ee10-maven-plugin</artifactId>
-        <version>12.0.12</version>
         <configuration>
           <httpConnector>
             <port>9080</port>
