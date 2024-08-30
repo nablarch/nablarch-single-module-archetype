@@ -39,9 +39,9 @@
     <version.plugins.failsafe>2.18</version.plugins.failsafe>
     <version.plugins.install>2.5.2</version.plugins.install>
     <version.plugins.jar>3.4.2</version.plugins.jar>
-    <version.plugins.javadoc>3.4.1</version.plugins.javadoc>
+    <version.plugins.javadoc>3.10.0</version.plugins.javadoc>
     <version.plugins.resources>3.3.1</version.plugins.resources>
-    <version.plugins.source>2.4</version.plugins.source>
+    <version.plugins.source>3.3.1</version.plugins.source>
     <version.plugins.jacoco>0.8.12</version.plugins.jacoco>
     <version.plugins.build-helper-maven>3.6.0</version.plugins.build-helper-maven>
     <version.plugins.jib>3.4.3</version.plugins.jib>
