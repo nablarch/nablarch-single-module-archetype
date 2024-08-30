@@ -33,11 +33,6 @@
     <version.plugins.antrun>3.1.0</version.plugins.antrun>
     <version.plugins.war>3.4.0</version.plugins.war>
     <version.plugins.assembly>3.7.1</version.plugins.assembly>
-    <version.plugins.clean>2.5</version.plugins.clean>
-    <version.plugins.deploy>2.8.2</version.plugins.deploy>
-    <version.plugins.dependency>2.9</version.plugins.dependency>
-    <version.plugins.failsafe>2.18</version.plugins.failsafe>
-    <version.plugins.install>2.5.2</version.plugins.install>
     <version.plugins.jar>3.4.2</version.plugins.jar>
     <version.plugins.javadoc>3.10.0</version.plugins.javadoc>
     <version.plugins.resources>3.3.1</version.plugins.resources>
@@ -264,21 +259,6 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>${version.plugins.clean}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>${version.plugins.dependency}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${version.plugins.failsafe}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${version.plugins.jar}</version>
         </plugin>
@@ -406,74 +386,5 @@
         </configuration>
       </plugin>
     </plugins>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-webdav-jackrabbit</artifactId>
-        <version>3.0.0</version>
-      </extension>
-    </extensions>
   </build>
-
-
-  <profiles>
-    <profile>
-      <id>ossrh</id>
-      <distributionManagement>
-        <repository>
-          <id>nablarch.staging</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-          <id>nablarch.snapshot</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-      </distributionManagement>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>2.2.1</version>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>2.9.1</version>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-  
 </project>
