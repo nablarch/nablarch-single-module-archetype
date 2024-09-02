@@ -23,8 +23,6 @@ sed -i -e "s/com\/nablarch\/archetype/\${packageInPathFormat}/g" pom.xml
 sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactId>nablarch-batch-ee<\/artifactId>/g" pom.xml
 # configファイル中のパッケージを置換文字列にする。
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
-# SQLファイルを移動。
-mv src/main/resources/com/nablarch/archetype/entity/*.sql src/main/resources/entity/
 # 想定箇所以外が${version}に置換されている可能性があるため、pom.xml以外の置換は元に戻す
 # `archetype_version` にはnablarch-archetype-parentのバージョンが入っているが、アーキタイプのバージョンと一致しているため問題ない。
 archetype_version=`grep -m 1 "<version>" pom.xml | awk -F '[><]' '{print $3}'`
