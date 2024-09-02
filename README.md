@@ -195,7 +195,7 @@ mvn install
 ## nablarch-web
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-web-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-web-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -203,7 +203,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=
 ## nablarch-jaxrs
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-jaxrs-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-jaxrs-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -211,7 +211,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=
 ## nablarch-batch
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
@@ -219,41 +219,41 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=
 ## nablarch-batch-ee
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
 ## nablarch-batch-dbless
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-dbless-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-dbless-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
 ## nablarch-container-web
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-web-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-web-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
 ## nablarch-container-jaxrs
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-jaxrs-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-jaxrs-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
 ## nablarch-container-batch
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
 
 ## nablarch-container-batch-dbless
 
 ```
-mvn org.apache.maven.plugins:maven-archetype-plugin:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-dbless-archetype -DarchetypeVersion=xxx
+mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-dbless-archetype -DarchetypeVersion=xxx
 ```
 (xxxの箇所は、適切なバージョンを指定してください)
