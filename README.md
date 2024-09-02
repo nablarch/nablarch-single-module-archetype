@@ -20,7 +20,7 @@ nablarch-single-module-archetype
 | モジュール                           | 説明                                                              |
 |:--------------------------------|:----------------------------------------------------------------|
 | nablarch-archetype-parent       | 各ひな形プロジェクトおよび各アーキタイプから生成されるプロジェクトの共通的な設定を記述したpom.xml。ブランクプロジェクトの親pom.xmlとなる。 |
-| nablarch-archetype-build-parent | 各アーキタイプの共通的な設定を記述したpom.xml。                                     |
+| nablarch-archetype-build-parent | 各アーキタイプの共通的な設定を記述したpom.xml。雛形プロジェクトから生成されたアーキタイプをカスタマイズした際に親pom.xmlとして設定される。                            |
 | nablarch-web                    | ウェブアプリケーション用アーキタイプの雛形プロジェクト。                                    |
 | nablarch-jaxrs                  | RESTfulウェブサービス用アーキタイプの雛形プロジェクト。                                 |
 | nablarch-batch                  | Nablarchバッチアプリケーション用アーキタイプの雛形プロジェクト。                            |
