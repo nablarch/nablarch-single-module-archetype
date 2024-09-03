@@ -12,7 +12,7 @@
   -->
 
   <groupId>com.nablarch.archetype</groupId>
-  <artifactId>archetype-build-parent</artifactId>
+  <artifactId>nablarch-archetype-build-parent</artifactId>
   <version>5-NEXT-SNAPSHOT</version>
   <packaging>pom</packaging>
 
