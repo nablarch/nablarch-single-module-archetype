@@ -187,7 +187,7 @@ mvn install
 
 # ビルドしたアーキタイプからプロジェクトを生成する方法
 
-## nablarch-archetype-parent
+## nablarch-archetype-parent, nablarch-archetype-build-parent
 
 アーキタイプでは無いため省略。
 
