@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <!--
+   nablarch-archetype自体の親pom。
+   nablarch-archetypeをMaven Centralにデプロイするための設定を行う。
+   nablarch-archetypeは雛形になっているプロジェクトからarchetype:create-from-projectで
+   作成するが、その親pomはnablarch-archetype-parentに設定された状態で生成される。
+   Maven Centralへのデプロイ前に、parentをnablarch-archetype-parentから本pomに書き換えること。
+   （各種pre-create-maven-archetype-*.shで行う）
+  -->
+
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>archetype-build-parent</artifactId>
-  <version>1.0.0</version>
+  <version>5-NEXT-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <licenses>
@@ -71,6 +81,15 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <!-- .gitignore等のファイルはデフォルトで除外されるので、これらを含めるための設定 -->
+          <useDefaultExcludes>false</useDefaultExcludes>
+        </configuration>
       </plugin>
     </plugins>
   </build>
