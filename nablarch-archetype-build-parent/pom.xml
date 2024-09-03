@@ -40,12 +40,19 @@
     <tag>HEAD</tag>
   </scm>
 
+  <properties>
+    <version.plugins.source>2.2.1</version.plugins.source>
+    <version.plugins.javadoc>2.9.1</version.plugins.javadoc>
+    <version.plugins.gpg>1.5</version.plugins.gpg>
+    <version.plugins.archetype>3.2.1</version.plugins.archetype>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>${version.plugins.source}</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -58,7 +65,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>${version.plugins.javadoc}</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -71,7 +78,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
+        <version>${version.plugins.gpg}</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
@@ -85,7 +92,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-archetype-plugin</artifactId>
-        <version>3.2.1</version>
+        <version>${version.plugins.archetype}</version>
         <configuration>
           <!-- .gitignore等のファイルはデフォルトで除外されるので、これらを含めるための設定 -->
           <useDefaultExcludes>false</useDefaultExcludes>
