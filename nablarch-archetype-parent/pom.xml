@@ -237,6 +237,11 @@
                   <groupId>ant</groupId>
                   <artifactId>ant</artifactId>
                 </exclusion>
+                <!-- Java 11以上で実行する場合に向けて、tools.jarを除外する -->
+                <exclusion>
+                  <groupId>jdk</groupId>
+                  <artifactId>tools</artifactId>
+                </exclusion>
               </exclusions>
             </dependency>
           </dependencies>
