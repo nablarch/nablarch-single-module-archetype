@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# archetypeのOSSRHにデプロイで必要となるbuild処理を定義した親pomをコピーする。
-cp ./archetype-build-parent.xml ./nablarch-batch-ee/target/generated-sources/archetype/
+SCRIPT_DIR=$(dirname $0)
 
-# コピーした親pomをarchetypのデプロイで利用されるpom.xml(archetype:create-from-projectで生成される)の親pomとなるように書き換える。
-sed -iorig 's|/modelVersion>|/modelVersion>\n <parent>\n<groupId>com.nablarch.archetype</groupId>\n<artifactId>archetype-build-parent</artifactId>\n<version>1.0.0</version>\n<relativePath>archetype-build-parent.xml</relativePath>\n</parent>|' ./nablarch-batch-ee/target/generated-sources/archetype/pom.xml
+BUILD_PARENT_GROUP_ID=com.nablarch.archetype
+BUILD_PARENT_ARTIFACT_ID=nablarch-archetype-build-parent
+BUILD_PARENT_VERSION=$(grep -E '^  <version>(.+)</version>$' ${SCRIPT_DIR}/nablarch-archetype-build-parent/pom.xml | sed -r 's|^  <version>(.+)</version>$|\1|')
+
+# archetypeのデプロイで利用されるpom.xml(archetype:create-from-projectで生成される)の親pomをnablarch-archetype-build-parentとなるように書き換える。
+sed -iorig 's|/modelVersion>|/modelVersion>\n\n <parent>\n <groupId>'${BUILD_PARENT_GROUP_ID}'</groupId>\n <artifactId>'${BUILD_PARENT_ARTIFACT_ID}'</artifactId>\n <version>'${BUILD_PARENT_VERSION}'</version>\n </parent>|' ./nablarch-batch-ee/target/generated-sources/archetype/pom.xml
 
 # .gitignoreを配置する
 cp ./gitignore/.gitignore ./nablarch-batch-ee/target/generated-sources/archetype/src/main/resources/archetype-resources
-
-# .gitignoreをアーキタイプに含めるため、maven-resources-pluginのコンフィグを明示的に設定する
-sed -i -e "s|</extensions>|</extensions>\n<plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId><configuration><addDefaultExcludes>false</addDefaultExcludes></configuration></plugin></plugins>|" ./nablarch-batch-ee/target/generated-sources/archetype/pom.xml
 
 # configファイルの置換文字列が機能するようにした設定をコピーする
 cp archetype-metadata-batch-ee.xml ./nablarch-batch-ee/target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
@@ -24,8 +24,6 @@ sed -i -e "s/      <artifactId>\${rootArtifactId}<\/artifactId>/      <artifactI
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/*.properties
 # etl.json中のパッケージを置換文字列にする。
 sed -i -e "s/com\.nablarch\.archetype/\${package}/g" src/main/resources/META-INF/etl-config/sample-etl.json
-# SQLファイルを移動。
-mv src/main/resources/com/nablarch/archetype/entity/*.sql src/main/resources/entity/
 popd
 
 # このあと、nablarch-batch-ee/target/generated-sources/archetypeで「mvn install」を実行するとアーキタイプをインストールできる。
