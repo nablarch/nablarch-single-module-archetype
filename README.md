@@ -34,8 +34,6 @@ nablarch-single-module-archetype
 
 # ビルド方法
 
-※GPGを使用しない環境で下記を実行する場合は、mvnコマンドに ``-Dgpg.skip=true`` を付加して実行すること。
-
 ## nablarch-archetype-parent
 
 ```
