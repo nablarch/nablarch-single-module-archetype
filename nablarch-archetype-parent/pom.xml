@@ -13,7 +13,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>6-NEXT-SNAPSHOT</version>
+  <version>6u2</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -50,7 +50,7 @@
     <version.plugins.release>3.1.1</version.plugins.release>
     <version.plugins.unpublished.api.checker>1.0.0</version.plugins.unpublished.api.checker>
     <version.plugins.findsecbugs>1.13.0</version.plugins.findsecbugs>
-    <version.nablarch.toolbox>6-NEXT-SNAPSHOT</version.nablarch.toolbox>
+    <version.nablarch.toolbox>2.1.0</version.nablarch.toolbox>
 
     <!-- toolsディレクトリへのパス -->
     <nablarch.tools.dir>${project.basedir}/tools</nablarch.tools.dir>
