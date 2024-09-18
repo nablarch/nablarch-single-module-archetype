@@ -13,6 +13,19 @@
   <version>6-NEXT-SNAPSHOT</version>
   <packaging>war</packaging>
 
+  <licenses>
+    <license/>
+  </licenses>
+  <developers>
+    <developer/>
+  </developers>
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
+
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
     <java.version>17</java.version>
