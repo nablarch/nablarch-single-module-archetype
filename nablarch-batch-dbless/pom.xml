@@ -12,6 +12,30 @@
   <version>5u25</version>
   <packaging>jar</packaging>
 
+  <!--
+   licenses、developers、scmはブランクプロジェクトの親であるnablarch-archetype-parentの
+   Maven Centralへのデプロイに必須の要件であり、ブランクプロジェクトでは親からこれらの情報を
+   継承しないよう明示的に空の値を設定して上書きしている。
+   値は必要に応じて、プロジェクトで変更すること。
+   また、これらの要素を削除した場合は親であるnablarch-archetype-parentの定義を継承することに
+   なるため注意すること。たとえば、ライセンスはApache License, Version 2.0を設定していることになる。
+  -->
+  <licenses>
+    <!-- プロジェクトのライセンスを設定する -->
+    <license/>
+  </licenses>
+  <developers>
+    <!-- プロジェクトの開発者情報を設定する -->
+    <developer/>
+  </developers>
+  <scm>
+    <!-- プロジェクトのバージョン管理システムの情報を設定する -->
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
+
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
     <java.version>1.8</java.version>
