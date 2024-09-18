@@ -16,9 +16,13 @@
   <version>5-NEXT-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <name>nablarch-archetype-build-parent</name>
+  <description>Nablarch Framework.</description>
+  <url>https://github.com/nablarch</url>
+
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
+      <name>The Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
