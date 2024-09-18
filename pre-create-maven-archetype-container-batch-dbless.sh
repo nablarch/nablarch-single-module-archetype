@@ -7,8 +7,7 @@ BUILD_PARENT_ARTIFACT_ID=nablarch-archetype-build-parent
 BUILD_PARENT_VERSION=$(grep -E '^  <version>(.+)</version>$' ${SCRIPT_DIR}/nablarch-archetype-build-parent/pom.xml | sed -r 's|^  <version>(.+)</version>$|\1|')
 
 # archetypeのデプロイで利用されるpom.xml(archetype:create-from-projectで生成される)の親pomをnablarch-archetype-build-parentとなるように書き換え、developers、licenses、scmを消去する。
-sed -iorig -e 's|/modelVersion>|/modelVersion>\n\n  <parent>\n    <groupId>'${BUILD_PARENT_GROUP_ID}'</groupId>\n    <artifactId>'${BUILD_PARENT_ARTIFACT_ID}'</artifactId>\n    <version>'${BUILD_PARENT_VERSION}'</version>\n  </parent>|' -r -e 's! *</?(developers?|licenses?|scm).*!!' ./nablarch-container-batch-dbless/target/generated-sources/archetype/pom.xml
-
+sed -iorig -e 's|/modelVersion>|/modelVersion>\n\n <parent>\n <groupId>'${BUILD_PARENT_GROUP_ID}'</groupId>\n <artifactId>'${BUILD_PARENT_ARTIFACT_ID}'</artifactId>\n <version>'${BUILD_PARENT_VERSION}'</version>\n </parent>|' -r -e 's! *</?(developers?|licenses?|scm).*!!' ./nablarch-container-batch-dbless/target/generated-sources/archetype/pom.xml
 # .gitignoreを配置する
 cp ./gitignore/.gitignore ./nablarch-container-batch-dbless/target/generated-sources/archetype/src/main/resources/archetype-resources
 
