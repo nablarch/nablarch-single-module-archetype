@@ -30,8 +30,6 @@
     <tag/>
     <url/>
   </scm>
-    <url/>
-  </scm>
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
