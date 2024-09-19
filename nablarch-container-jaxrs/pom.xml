@@ -13,6 +13,11 @@
   <version>6-NEXT-SNAPSHOT</version>
   <packaging>war</packaging>
 
+  <!--
+   ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
+   引き継がないように空の値で上書きしている。
+   これらの値は、必要に応じてプロジェクトで変更すること。
+  -->
   <licenses>
     <license/>
   </licenses>
@@ -23,6 +28,8 @@
     <connection/>
     <developerConnection/>
     <tag/>
+    <url/>
+  </scm>
     <url/>
   </scm>
 
