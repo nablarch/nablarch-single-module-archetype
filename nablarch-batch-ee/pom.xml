@@ -416,7 +416,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <configuration>
-          <outputDirectory>${project.build.outputDirectory}</outputDirectory>
           <overwrite>true</overwrite>
         </configuration>
       </plugin>
