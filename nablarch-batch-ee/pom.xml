@@ -6,12 +6,29 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>6u1</version>
+    <version>6u2</version>
   </parent>
 
   <artifactId>nablarch-batch-ee</artifactId>
-  <version>6u1</version>
+  <version>6u2</version>
 
+  <!--
+   ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
+   引き継がないように空の値で上書きしている。
+   これらの値は、必要に応じてプロジェクトで変更すること。
+  -->
+  <licenses>
+    <license/>
+  </licenses>
+  <developers>
+    <developer/>
+  </developers>
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
 
   <!-- DB接続設定とビルド設定 -->
   <properties>
@@ -31,7 +48,7 @@
     <nablarch.db.schema>PUBLIC</nablarch.db.schema>
     
     <!-- ライブラリのバージョン -->
-    <jberet.version>2.1.1.Final</jberet.version>
+    <jberet.version>2.1.4.Final</jberet.version>
     
   </properties>
 
@@ -147,7 +164,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-install-plugin</artifactId>
-            <version>${version.plugins.install}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをinstallするための設定 -->
               <execution>
@@ -168,7 +184,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
-            <version>${version.plugins.deploy}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをdeployするための設定 -->
               <execution>
@@ -197,14 +212,14 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>6u1</version>
+        <version>6u2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.8.2</version>
+        <version>5.11.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -281,11 +296,6 @@
       <version>5.0.0</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.nablarch.integration</groupId>
-      <artifactId>nablarch-jboss-logging-adaptor</artifactId>
-    </dependency>
-
     <!-- JBeretに最低限必要な依存関係 -->
     <dependency>
       <groupId>jakarta.batch</groupId>
@@ -311,25 +321,30 @@
     <dependency>
       <groupId>org.jboss.marshalling</groupId>
       <artifactId>jboss-marshalling</artifactId>
-      <version>2.0.12.Final</version>
+      <version>2.1.3.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
-      <version>3.4.3.Final</version>
+      <version>3.5.3.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.weld</groupId>
       <artifactId>weld-core-impl</artifactId>
-      <version>5.0.0.SP1</version>
+      <version>5.0.1.Final</version>
     </dependency>
     <dependency>
       <groupId>org.wildfly.security</groupId>
       <artifactId>wildfly-elytron-security-manager</artifactId>
-      <version>1.19.0.Final</version>
+      <version>2.2.2.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>32.1.1-jre</version>
     </dependency>
 
-    <!-- JBereteをJavaSEで動作させるための依存関係 -->
+    <!-- JBeretをJavaSEで動作させるための依存関係 -->
     <dependency>
       <groupId>org.jberet</groupId>
       <artifactId>jberet-se</artifactId>
@@ -338,7 +353,7 @@
     <dependency>
       <groupId>org.jboss.weld.se</groupId>
       <artifactId>weld-se-core</artifactId>
-      <version>5.0.0.SP1</version>
+      <version>5.0.1.Final</version>
     </dependency>
 
     <!--
@@ -372,28 +387,22 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.12</version>
+      <version>2.0.11</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.13</version>
-    </dependency>
-    <!-- logbackより後ろに無いと実行時にエラーになる -->
-    <dependency>
-      <groupId>com.nablarch.integration</groupId>
-      <artifactId>slf4j-nablarch-adaptor</artifactId>
-      <scope>runtime</scope>
+      <version>1.5.6</version>
     </dependency>
   </dependencies>
 
   <build>
     <resources>
       <resource>
-        <directory>${env.resources}</directory>
+        <directory>src/main/resources</directory>
       </resource>
       <resource>
-        <directory>src/main/resources</directory>
+        <directory>${env.resources}</directory>
       </resource>
       <resource>
         <directory>src/main/java</directory>
@@ -403,6 +412,13 @@
       </resource>
     </resources>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <overwrite>true</overwrite>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>

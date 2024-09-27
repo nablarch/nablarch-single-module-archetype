@@ -6,12 +6,30 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>6u1</version>
+    <version>6u2</version>
   </parent>
 
   <artifactId>nablarch-container-jaxrs</artifactId>
-  <version>6u1</version>
+  <version>6u2</version>
   <packaging>war</packaging>
+
+  <!--
+   ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
+   引き継がないように空の値で上書きしている。
+   これらの値は、必要に応じてプロジェクトで変更すること。
+  -->
+  <licenses>
+    <license/>
+  </licenses>
+  <developers>
+    <developer/>
+  </developers>
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
@@ -31,7 +49,7 @@
      検証時と異なるバージョンが選択された場合、アプリケーションの動作に影響が出る可能性があるので、
      プロジェクトにおける検証が完了した段階で、バージョンを固定するために、イメージをダイジェストで指定することを推奨する。
     -->
-    <jib.from.image>tomcat:10.1.5-jdk17-temurin</jib.from.image>
+    <jib.from.image>tomcat:10.1.28-jdk17-temurin</jib.from.image>
   </properties>
 
   <!--
@@ -121,7 +139,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-install-plugin</artifactId>
-            <version>${version.plugins.install}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをinstallするための設定 -->
               <execution>
@@ -142,7 +159,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
-            <version>${version.plugins.deploy}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをdeployするための設定 -->
               <execution>
@@ -171,14 +187,14 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>6u1</version>
+        <version>6u2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.8.2</version>
+        <version>5.11.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -300,7 +316,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.12.7.1</version>
+      <version>2.17.1</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -353,14 +369,14 @@
     <dependency>
       <groupId>org.skyscreamer</groupId>
       <artifactId>jsonassert</artifactId>
-      <version>1.5.0</version>
+      <version>1.5.3</version>
       <scope>test</scope>
     </dependency>
     <!--  JSONPath形式でのアサートに使用するライブラリ  -->
     <dependency>
       <groupId>com.jayway.jsonpath</groupId>
       <artifactId>json-path-assert</artifactId>
-      <version>2.4.0</version>
+      <version>2.9.0</version>
       <scope>test</scope>
     </dependency>
 
@@ -368,13 +384,13 @@
     <dependency>
       <groupId>org.xmlunit</groupId>
       <artifactId>xmlunit-core</artifactId>
-      <version>2.7.0</version>
+      <version>2.10.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.xmlunit</groupId>
       <artifactId>xmlunit-matchers</artifactId>
-      <version>2.7.0</version>
+      <version>2.10.0</version>
       <scope>test</scope>
     </dependency>
     <!-- ================ここまで任意で使用するツールの設定================ -->
@@ -404,7 +420,6 @@
       <plugin>
         <groupId>org.eclipse.jetty.ee10</groupId>
         <artifactId>jetty-ee10-maven-plugin</artifactId>
-        <version>12.0.3</version>
         <configuration>
           <httpConnector>
             <port>9080</port>

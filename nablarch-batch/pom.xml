@@ -5,12 +5,30 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>6u1</version>
+    <version>6u2</version>
   </parent>
 
   <artifactId>nablarch-batch</artifactId>
-  <version>6u1</version>
+  <version>6u2</version>
   <packaging>jar</packaging>
+
+  <!--
+   ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
+   引き継がないように空の値で上書きしている。
+   これらの値は、必要に応じてプロジェクトで変更すること。
+  -->
+  <licenses>
+    <license/>
+  </licenses>
+  <developers>
+    <developer/>
+  </developers>
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
@@ -142,7 +160,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-install-plugin</artifactId>
-            <version>${version.plugins.install}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをinstallするための設定 -->
               <execution>
@@ -163,7 +180,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
-            <version>${version.plugins.deploy}</version>
             <executions>
               <!-- gsp-dba-maven-pluginで生成したdumpファイルをdeployするための設定 -->
               <execution>
@@ -192,14 +208,14 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>6u1</version>
+        <version>6u2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.8.2</version>
+        <version>5.11.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -334,10 +350,10 @@
   <build>
     <resources>
       <resource>
-        <directory>${env.resources}</directory>
+        <directory>src/main/resources</directory>
       </resource>
       <resource>
-        <directory>src/main/resources</directory>
+        <directory>${env.resources}</directory>
       </resource>
       <resource>
         <directory>src/main/java</directory>
@@ -347,6 +363,13 @@
       </resource>
     </resources>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <overwrite>true</overwrite>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
