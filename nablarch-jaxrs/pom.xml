@@ -6,12 +6,30 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5u24</version>
+    <version>5u25</version>
   </parent>
 
   <artifactId>nablarch-jaxrs</artifactId>
-  <version>5u24</version>
+  <version>5u25</version>
   <packaging>war</packaging>
+
+  <!--
+   ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
+   引き継がないように空の値で上書きしている。
+   これらの値は、必要に応じてプロジェクトで変更すること。
+  -->
+  <licenses>
+    <license/>
+  </licenses>
+  <developers>
+    <developer/>
+  </developers>
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <tag/>
+    <url/>
+  </scm>
 
   <properties>
     <!-- ソース及びclassファイルが準拠するJavaのバージョン-->
@@ -216,7 +234,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u24</version>
+        <version>5u25</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
