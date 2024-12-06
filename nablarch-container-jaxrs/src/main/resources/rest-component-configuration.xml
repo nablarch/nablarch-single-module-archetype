@@ -30,6 +30,12 @@
   <import file="nablarch/core/db-base.xml" />
   <import file="data-source.xml" />
 
+  <!-- ファイルパス設置 -->
+  <import file="nablarch/webui/filepath-for-webui.xml" />
+
+  <!-- ファイルアップロード機能設定 -->
+  <import file="nablarch/webui/multipart.xml" />
+
   <!-- スレッドコンテキストハンドラ -->
   <import file="nablarch/webui/threadcontext-for-webui.xml"/>
 
@@ -81,6 +87,8 @@
             </list>
           </property>
         </component>
+
+        <component-ref name="multipartHandler"/>
 
         <component-ref name="threadContextHandler"/>
 
