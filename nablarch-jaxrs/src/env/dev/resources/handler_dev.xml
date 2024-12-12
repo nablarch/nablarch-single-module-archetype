@@ -35,6 +35,8 @@
           </property>
         </component>
 
+        <component-ref name="multipartHandler"/>
+
         <component-ref name="threadContextHandler"/>
 
         <component class="nablarch.fw.jaxrs.JaxRsAccessLogHandler"/>
