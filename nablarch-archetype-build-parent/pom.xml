@@ -14,7 +14,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-build-parent</artifactId>
-  <version>6-NEXT-SNAPSHOT</version>
+  <version>6u3</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-build-parent</name>
