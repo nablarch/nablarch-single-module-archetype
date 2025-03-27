@@ -13,7 +13,7 @@
 
   <groupId>com.nablarch.archetype</groupId>
   <artifactId>nablarch-archetype-parent</artifactId>
-  <version>6u2</version>
+  <version>6u3</version>
   <packaging>pom</packaging>
 
   <name>nablarch-archetype-parent</name>
@@ -52,7 +52,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <version.plugins.gsp.dba>5.1.0</version.plugins.gsp.dba>
+    <version.plugins.gsp.dba>5.2.0</version.plugins.gsp.dba>
     <version.plugins.compiler>3.13.0</version.plugins.compiler>
     <version.plugins.surefire>3.5.0</version.plugins.surefire>
     <version.plugins.antrun>3.1.0</version.plugins.antrun>
@@ -72,7 +72,7 @@
     <version.plugins.spotbugs>4.8.6.2</version.plugins.spotbugs>
     <spotbugs.version>4.8.6</spotbugs.version>
     <version.plugins.release>3.1.1</version.plugins.release>
-    <version.plugins.unpublished.api.checker>1.0.0</version.plugins.unpublished.api.checker>
+    <version.plugins.unpublished.api.checker>1.0.1</version.plugins.unpublished.api.checker>
     <version.plugins.findsecbugs>1.13.0</version.plugins.findsecbugs>
     <version.nablarch.toolbox>2.1.0</version.nablarch.toolbox>
 
