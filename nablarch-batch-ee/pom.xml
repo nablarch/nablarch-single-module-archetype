@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.nablarch.archetype</groupId>
     <artifactId>nablarch-archetype-parent</artifactId>
-    <version>5-NEXT-SNAPSHOT</version>
+    <version>5u26</version>
   </parent>
 
   <artifactId>nablarch-batch-ee</artifactId>
-  <version>5-NEXT-SNAPSHOT</version>
+  <version>5u26</version>
 
   <!--
    ライセンス、開発者やSCMといったプロジェクト自身に関する情報は、親pomの情報を
@@ -211,7 +211,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5-NEXT-SNAPSHOT</version>
+        <version>5u26</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
