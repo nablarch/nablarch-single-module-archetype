@@ -49,22 +49,13 @@
     <version.plugins.source>3.3.1</version.plugins.source>
     <version.plugins.javadoc>3.10.0</version.plugins.javadoc>
     <version.plugins.gpg>3.2.5</version.plugins.gpg>
+    <version.plugins.central-publishing>0.7.0</version.plugins.central-publishing>
     <version.plugins.archetype>3.2.1</version.plugins.archetype>
   </properties>
 
   <profiles>
     <profile>
-      <id>ossrh</id>
-      <distributionManagement>
-        <repository>
-          <id>nablarch.staging</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-          <id>nablarch.snapshot</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-      </distributionManagement>
+      <id>central</id>
       <build>
         <plugins>
           <plugin>
@@ -106,6 +97,15 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${version.plugins.central-publishing}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+            </configuration>
           </plugin>
         </plugins>
       </build>
