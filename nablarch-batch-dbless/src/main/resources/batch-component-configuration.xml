@@ -24,7 +24,7 @@
   <!--
   バッチ固有の設定読み込み
   -->
-  <!-- ファイルパス設置 -->
+  <!-- ファイルパス設定 -->
   <import file="nablarch/batch/filepath-for-batch.xml" />
   <!-- マルチスレッド実行制御機能 -->
   <import file="nablarch/common/standalone/multi-thread-dbless.xml" />

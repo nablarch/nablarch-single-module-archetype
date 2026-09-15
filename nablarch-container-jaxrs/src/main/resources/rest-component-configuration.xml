@@ -30,7 +30,7 @@
   <import file="nablarch/core/db-base.xml" />
   <import file="data-source.xml" />
 
-  <!-- ファイルパス設置 -->
+  <!-- ファイルパス設定 -->
   <import file="nablarch/webui/filepath-for-webui.xml" />
 
   <!-- ファイルアップロード機能設定 -->
