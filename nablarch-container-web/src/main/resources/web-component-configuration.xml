@@ -73,6 +73,9 @@
       <property name="baseUri" value="" />
       <property name="checkInterval" value="${nablarch.routesMapping.checkInterval}"/>
       <property name="basePackage" value="${nablarch.commonProperty.basePackage}" />
+      <property name="methodBinderFactory">
+        <component class="nablarch.integration.router.RoutesMethodBinderFactory" />
+      </property>
   </component>
 
   <!-- セッションストア機能 -->
