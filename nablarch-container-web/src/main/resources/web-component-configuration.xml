@@ -36,7 +36,7 @@
   <!-- エラーページ設定 -->
   <import file="nablarch/webui/error-page-for-webui.xml" />
 
-  <!-- ファイルパス設置 -->
+  <!-- ファイルパス設定 -->
   <import file="nablarch/webui/filepath-for-webui.xml" />
 
   <!-- インターセプタの実行順定義 -->

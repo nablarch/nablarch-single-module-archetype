@@ -36,7 +36,7 @@
   <import file="nablarch/batch/db-for-batch.xml" />
   <import file="data-source.xml"/>
 
-  <!-- ファイルパス設置 -->
+  <!-- ファイルパス設定 -->
   <import file="nablarch/batch/filepath-for-batch.xml" />
   <!-- スレッドコンテキスト機能 -->
   <import file="nablarch/batch/threadcontext-for-batch.xml" />
