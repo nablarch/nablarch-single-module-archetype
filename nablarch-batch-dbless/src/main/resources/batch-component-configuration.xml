@@ -11,6 +11,23 @@
   <!-- DomainManager 実装クラス設定 -->
   <component name="domainManager" class="com.nablarch.archetype.domain.SampleDomainManager"/>
 
+  <!-- TODO:BeanUtilの型変換で許容する日付・数値のフォーマット。案件の入力仕様に合わせて変更すること -->
+  <component name="conversionManager" class="nablarch.core.beans.BasicConversionManager">
+    <!-- 日付の許容するフォーマット -->
+    <property name="datePatterns">
+      <list>
+        <value>yyyy/MM/dd</value>
+        <value>yyyy-MM-dd</value>
+      </list>
+    </property>
+    <!-- 数値の許容するフォーマット -->
+    <property name="numberPatterns">
+      <list>
+        <value>#,###</value>
+      </list>
+    </property>
+  </component>
+
   <!-- 環境設定ファイル -->
   <config-file file="common.properties"/>
   <config-file file="env.properties"/>
